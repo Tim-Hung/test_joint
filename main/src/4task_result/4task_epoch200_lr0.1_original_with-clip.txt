@@ -1,0 +1,1118 @@
+Script started on 2021-01-13 18:13:54+0800
+tim32338519@y5tqr6ctr1610510024420-nvxkk:~/main/src$ exitCUDA_VISIBLE_DEVICES=0 python run.py --experiment cifar --approach hat-ress50 --nepochs 200 --lr 0.1[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C python run.py --experiment cifar --approach hat-res5[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C4 python run.py --experiment cifar --approach hat-res[1@5[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+====================================================================================================
+Arguments =
+	seed: 0
+	experiment: cifar
+	approach: hat-res50
+	output: ../res/20211131815_cifar_hat-res50_0.txt
+	nepochs: 200
+	lr: 0.1
+	parameter: 
+	load_path: 
+====================================================================================================
+Load data...
+Task order = [0, 1, 2, 3]
+Input size = [3, 32, 32] 
+Task info = [(0, 100), (1, 100), (2, 100), (3, 100)]
+Inits...
+No pretrained model
+----------------------------------------------------------------------------------------------------
+Net(
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (relu): ReLU()
+  (c1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c2_1_1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_1_2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c2_1_3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_1_d): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_2_1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_2_2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c2_2_3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_3_1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_3_2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c2_3_3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_1_1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_1_2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (c3_1_3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_1_d): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+  (c3_2_1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_2_2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c3_2_3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_3_1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_3_2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c3_3_3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_4_1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_4_2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c3_4_3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_1_1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_1_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (c4_1_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_1_d): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+  (c4_2_1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_2_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c4_2_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_3_1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_3_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c4_3_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_4_1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_4_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c4_4_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_5_1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_5_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c4_5_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_6_1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_6_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c4_6_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_1_1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_1_2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (c5_1_3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_1_d): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+  (c5_2_1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_2_2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c5_2_3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_3_1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_3_2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c5_3_3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (last): ModuleList(
+    (0): Linear(in_features=2048, out_features=100, bias=True)
+    (1): Linear(in_features=2048, out_features=100, bias=True)
+    (2): Linear(in_features=2048, out_features=100, bias=True)
+    (3): Linear(in_features=2048, out_features=100, bias=True)
+  )
+  (gate): Sigmoid()
+  (ec1): Embedding(4, 64)
+  (ec2_1_1): Embedding(4, 64)
+  (ec2_1_2): Embedding(4, 64)
+  (ec2_1_3): Embedding(4, 256)
+  (ec2_1_d): Embedding(4, 256)
+  (ect2_1): Embedding(4, 256)
+  (ec2_2_1): Embedding(4, 64)
+  (ec2_2_2): Embedding(4, 64)
+  (ec2_2_3): Embedding(4, 256)
+  (ec2_3_1): Embedding(4, 64)
+  (ec2_3_2): Embedding(4, 64)
+  (ec2_3_3): Embedding(4, 256)
+  (ec3_1_1): Embedding(4, 128)
+  (ec3_1_2): Embedding(4, 128)
+  (ec3_1_3): Embedding(4, 512)
+  (ec3_1_d): Embedding(4, 512)
+  (ect3_1): Embedding(4, 512)
+  (ec3_2_1): Embedding(4, 128)
+  (ec3_2_2): Embedding(4, 128)
+  (ec3_2_3): Embedding(4, 512)
+  (ec3_3_1): Embedding(4, 128)
+  (ec3_3_2): Embedding(4, 128)
+  (ec3_3_3): Embedding(4, 512)
+  (ec3_4_1): Embedding(4, 128)
+  (ec3_4_2): Embedding(4, 128)
+  (ec3_4_3): Embedding(4, 512)
+  (ec4_1_1): Embedding(4, 256)
+  (ec4_1_2): Embedding(4, 256)
+  (ec4_1_3): Embedding(4, 1024)
+  (ec4_1_d): Embedding(4, 1024)
+  (ect4_1): Embedding(4, 1024)
+  (ec4_2_1): Embedding(4, 256)
+  (ec4_2_2): Embedding(4, 256)
+  (ec4_2_3): Embedding(4, 1024)
+  (ec4_3_1): Embedding(4, 256)
+  (ec4_3_2): Embedding(4, 256)
+  (ec4_3_3): Embedding(4, 1024)
+  (ec4_4_1): Embedding(4, 256)
+  (ec4_4_2): Embedding(4, 256)
+  (ec4_4_3): Embedding(4, 1024)
+  (ec4_5_1): Embedding(4, 256)
+  (ec4_5_2): Embedding(4, 256)
+  (ec4_5_3): Embedding(4, 1024)
+  (ec4_6_1): Embedding(4, 256)
+  (ec4_6_2): Embedding(4, 256)
+  (ec4_6_3): Embedding(4, 1024)
+  (ec5_1_1): Embedding(4, 512)
+  (ec5_1_2): Embedding(4, 512)
+  (ec5_1_3): Embedding(4, 2048)
+  (ec5_1_d): Embedding(4, 2048)
+  (ect5_1): Embedding(4, 2048)
+  (ec5_2_1): Embedding(4, 512)
+  (ec5_2_2): Embedding(4, 512)
+  (ec5_2_3): Embedding(4, 2048)
+  (ec5_3_1): Embedding(4, 512)
+  (ec5_3_2): Embedding(4, 512)
+  (ec5_3_3): Embedding(4, 2048)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_1_1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_1_2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_1_3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_1_d): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_2_1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_2_2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_2_3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_3_1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_3_2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_3_3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_1_1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_1_2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_1_3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_1_d): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_2_1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_2_2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_2_3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_3_1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_3_2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_3_3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_4_1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_4_2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_4_3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_1_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_1_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_1_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_1_d): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_2_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_2_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_2_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_3_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_3_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_3_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_4_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_4_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_4_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_5_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_5_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_5_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_6_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_6_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_6_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_1_1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_1_2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_1_3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_1_d): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_2_1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_2_2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_2_3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_3_1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_3_2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_3_3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+)
+Dimensions = torch.Size([64, 3, 3, 3]) torch.Size([64, 64, 1, 1]) torch.Size([64, 64, 3, 3]) torch.Size([256, 64, 1, 1]) torch.Size([256, 64, 1, 1]) torch.Size([64, 256, 1, 1]) torch.Size([64, 64, 3, 3]) torch.Size([256, 64, 1, 1]) torch.Size([64, 256, 1, 1]) torch.Size([64, 64, 3, 3]) torch.Size([256, 64, 1, 1]) torch.Size([128, 256, 1, 1]) torch.Size([128, 128, 3, 3]) torch.Size([512, 128, 1, 1]) torch.Size([512, 256, 1, 1]) torch.Size([128, 512, 1, 1]) torch.Size([128, 128, 3, 3]) torch.Size([512, 128, 1, 1]) torch.Size([128, 512, 1, 1]) torch.Size([128, 128, 3, 3]) torch.Size([512, 128, 1, 1]) torch.Size([128, 512, 1, 1]) torch.Size([128, 128, 3, 3]) torch.Size([512, 128, 1, 1]) torch.Size([256, 512, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([1024, 512, 1, 1]) torch.Size([256, 1024, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([256, 1024, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([256, 1024, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([256, 1024, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([256, 1024, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([512, 1024, 1, 1]) torch.Size([512, 512, 3, 3]) torch.Size([2048, 512, 1, 1]) torch.Size([2048, 1024, 1, 1]) torch.Size([512, 2048, 1, 1]) torch.Size([512, 512, 3, 3]) torch.Size([2048, 512, 1, 1]) torch.Size([512, 2048, 1, 1]) torch.Size([512, 512, 3, 3]) torch.Size([2048, 512, 1, 1]) torch.Size([100, 2048]) torch.Size([100]) torch.Size([100, 2048]) torch.Size([100]) torch.Size([100, 2048]) torch.Size([100]) torch.Size([100, 2048]) torch.Size([100]) torch.Size([4, 64]) torch.Size([4, 64]) torch.Size([4, 64]) torch.Size([4, 256]) torch.Size([4, 256]) torch.Size([4, 256]) torch.Size([4, 64]) torch.Size([4, 64]) torch.Size([4, 256]) torch.Size([4, 64]) torch.Size([4, 64]) torch.Size([4, 256]) torch.Size([4, 128]) torch.Size([4, 128]) torch.Size([4, 512]) torch.Size([4, 512]) torch.Size([4, 512]) torch.Size([4, 128]) torch.Size([4, 128]) torch.Size([4, 512]) torch.Size([4, 128]) torch.Size([4, 128]) torch.Size([4, 512]) torch.Size([4, 128]) torch.Size([4, 128]) torch.Size([4, 512]) torch.Size([4, 256]) torch.Size([4, 256]) torch.Size([4, 1024]) torch.Size([4, 1024]) torch.Size([4, 1024]) torch.Size([4, 256]) torch.Size([4, 256]) torch.Size([4, 1024]) torch.Size([4, 256]) torch.Size([4, 256]) torch.Size([4, 1024]) torch.Size([4, 256]) torch.Size([4, 256]) torch.Size([4, 1024]) torch.Size([4, 256]) torch.Size([4, 256]) torch.Size([4, 1024]) torch.Size([4, 256]) torch.Size([4, 256]) torch.Size([4, 1024]) torch.Size([4, 512]) torch.Size([4, 512]) torch.Size([4, 2048]) torch.Size([4, 2048]) torch.Size([4, 2048]) torch.Size([4, 512]) torch.Size([4, 512]) torch.Size([4, 2048]) torch.Size([4, 512]) torch.Size([4, 512]) torch.Size([4, 2048]) 
+Num parameters = 24.4M
+----------------------------------------------------------------------------------------------------
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.1
+    momentum: 0
+    nesterov: False
+    weight_decay: 0
+) = lr: 0.1, momentum: 0, dampening: 0, weight_decay: 0, nesterov: False, 
+----------------------------------------------------------------------------------------------------
+****************************************************************************************************
+Task  0 (cifar100-all-0)
+****************************************************************************************************
+Train
+[52, 65, 81, 102, 128, 160]
+202111318153_Original_SGD_momentum_lr0.1_factor3_task0
+epochs:200
+/home/tim32338519/main/src/approaches/hat.py:192: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(self.model.parameters(),self.clipgrad)
+/home/tim32338519/main/src/approaches/hat.py:221: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  images=torch.autograd.Variable(x[b],volatile=True)
+/home/tim32338519/main/src/approaches/hat.py:222: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  targets=torch.autograd.Variable(y[b],volatile=True)
+/home/tim32338519/main/src/approaches/hat.py:223: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  task=torch.autograd.Variable(torch.LongTensor([t]).cuda(),volatile=True)
+| Epoch   1, time=205.0ms/ 76.7ms | Train: loss=4.097, acc=  9.1% | Valid: loss=4.113, acc=  9.0% | *
+| Epoch   2, time=201.9ms/ 76.7ms | Train: loss=3.730, acc= 14.8% | Valid: loss=3.764, acc= 13.9% | *
+| Epoch   3, time=202.0ms/ 76.7ms | Train: loss=3.433, acc= 19.8% | Valid: loss=3.505, acc= 18.4% | *
+| Epoch   4, time=201.9ms/ 76.7ms | Train: loss=3.163, acc= 25.3% | Valid: loss=3.278, acc= 23.0% | *
+| Epoch   5, time=201.9ms/ 76.8ms | Train: loss=3.024, acc= 27.5% | Valid: loss=3.114, acc= 25.4% | *
+| Epoch   6, time=202.4ms/ 77.0ms | Train: loss=2.786, acc= 32.1% | Valid: loss=2.938, acc= 29.1% | *
+| Epoch   7, time=202.2ms/ 76.7ms | Train: loss=2.659, acc= 34.4% | Valid: loss=2.836, acc= 30.2% | *
+| Epoch   8, time=202.0ms/ 76.8ms | Train: loss=2.587, acc= 35.9% | Valid: loss=2.766, acc= 31.7% | *
+| Epoch   9, time=202.2ms/ 76.7ms | Train: loss=2.440, acc= 39.4% | Valid: loss=2.656, acc= 34.4% | *
+| Epoch  10, time=202.1ms/ 76.7ms | Train: loss=2.279, acc= 42.1% | Valid: loss=2.555, acc= 35.7% | *
+| Epoch  11, time=202.0ms/ 77.1ms | Train: loss=2.194, acc= 44.4% | Valid: loss=2.500, acc= 37.6% | *
+| Epoch  12, time=203.8ms/ 77.2ms | Train: loss=2.115, acc= 45.9% | Valid: loss=2.443, acc= 39.5% | *
+| Epoch  13, time=202.9ms/ 77.2ms | Train: loss=2.097, acc= 46.6% | Valid: loss=2.433, acc= 38.8% | *
+| Epoch  14, time=203.1ms/ 76.8ms | Train: loss=2.030, acc= 47.1% | Valid: loss=2.395, acc= 39.4% | *
+| Epoch  15, time=202.7ms/ 77.2ms | Train: loss=1.954, acc= 48.9% | Valid: loss=2.346, acc= 39.6% | *
+| Epoch  16, time=202.8ms/ 76.8ms | Train: loss=1.950, acc= 49.6% | Valid: loss=2.349, acc= 40.3% | *
+| Epoch  17, time=202.0ms/ 76.8ms | Train: loss=1.895, acc= 50.3% | Valid: loss=2.355, acc= 40.8% | *
+| Epoch  18, time=202.1ms/ 76.8ms | Train: loss=1.861, acc= 51.3% | Valid: loss=2.295, acc= 42.5% | *
+| Epoch  19, time=202.1ms/ 76.8ms | Train: loss=1.806, acc= 53.5% | Valid: loss=2.275, acc= 42.6% | *
+| Epoch  20, time=202.1ms/ 76.8ms | Train: loss=1.714, acc= 54.8% | Valid: loss=2.170, acc= 44.3% | *
+| Epoch  21, time=202.1ms/ 76.7ms | Train: loss=1.716, acc= 55.5% | Valid: loss=2.189, acc= 44.3% |
+| Epoch  22, time=202.8ms/ 76.8ms | Train: loss=1.728, acc= 54.6% | Valid: loss=2.224, acc= 43.3% |
+| Epoch  23, time=202.0ms/ 76.8ms | Train: loss=1.696, acc= 55.2% | Valid: loss=2.203, acc= 43.6% | *
+| Epoch  24, time=202.1ms/ 76.8ms | Train: loss=1.560, acc= 59.1% | Valid: loss=2.076, acc= 47.0% | *
+| Epoch  25, time=202.1ms/ 77.2ms | Train: loss=1.560, acc= 59.1% | Valid: loss=2.082, acc= 47.2% | *
+| Epoch  26, time=202.8ms/ 76.8ms | Train: loss=1.546, acc= 59.0% | Valid: loss=2.069, acc= 47.0% | *
+| Epoch  27, time=202.6ms/ 76.8ms | Train: loss=1.544, acc= 59.3% | Valid: loss=2.093, acc= 47.2% | *
+| Epoch  28, time=202.0ms/ 76.7ms | Train: loss=1.505, acc= 60.1% | Valid: loss=2.076, acc= 47.0% | *
+| Epoch  29, time=202.0ms/ 77.5ms | Train: loss=1.506, acc= 60.1% | Valid: loss=2.065, acc= 47.4% |
+| Epoch  30, time=203.0ms/ 77.2ms | Train: loss=1.516, acc= 59.4% | Valid: loss=2.136, acc= 45.8% |
+| Epoch  31, time=203.0ms/ 77.2ms | Train: loss=1.485, acc= 60.8% | Valid: loss=2.096, acc= 46.9% | *
+| Epoch  32, time=202.9ms/ 77.2ms | Train: loss=1.460, acc= 61.6% | Valid: loss=2.063, acc= 47.5% | *
+| Epoch  33, time=203.0ms/ 77.3ms | Train: loss=1.457, acc= 61.2% | Valid: loss=2.062, acc= 47.7% | *
+| Epoch  34, time=202.9ms/ 77.2ms | Train: loss=1.454, acc= 61.1% | Valid: loss=2.092, acc= 46.8% | *
+| Epoch  35, time=203.0ms/ 77.2ms | Train: loss=1.445, acc= 61.5% | Valid: loss=2.065, acc= 47.3% | *
+| Epoch  36, time=202.9ms/ 77.2ms | Train: loss=1.425, acc= 62.1% | Valid: loss=2.089, acc= 47.3% | *
+| Epoch  37, time=203.0ms/ 77.2ms | Train: loss=1.440, acc= 61.3% | Valid: loss=2.085, acc= 48.3% |
+| Epoch  38, time=203.0ms/ 77.2ms | Train: loss=1.403, acc= 62.4% | Valid: loss=2.075, acc= 48.1% | *
+| Epoch  39, time=203.0ms/ 77.2ms | Train: loss=1.377, acc= 62.3% | Valid: loss=2.019, acc= 48.1% | *
+| Epoch  40, time=203.0ms/ 77.2ms | Train: loss=1.474, acc= 60.0% | Valid: loss=2.105, acc= 47.8% |
+| Epoch  41, time=203.0ms/ 77.2ms | Train: loss=1.414, acc= 61.9% | Valid: loss=2.066, acc= 48.1% |
+| Epoch  42, time=203.0ms/ 77.3ms | Train: loss=1.306, acc= 64.8% | Valid: loss=2.005, acc= 49.7% | *
+| Epoch  43, time=202.0ms/ 76.7ms | Train: loss=1.348, acc= 64.3% | Valid: loss=2.029, acc= 48.3% |
+| Epoch  44, time=202.1ms/ 76.7ms | Train: loss=1.324, acc= 64.9% | Valid: loss=2.010, acc= 49.0% |
+| Epoch  45, time=202.1ms/ 76.8ms | Train: loss=1.336, acc= 64.3% | Valid: loss=2.049, acc= 47.7% |
+| Epoch  46, time=202.0ms/ 76.7ms | Train: loss=1.371, acc= 63.2% | Valid: loss=2.066, acc= 47.9% | lr=3.3e-02
+| Epoch  47, time=199.1ms/ 76.8ms | Train: loss=0.820, acc= 80.2% | Valid: loss=1.624, acc= 57.7% | *
+| Epoch  48, time=199.2ms/ 76.8ms | Train: loss=0.718, acc= 83.3% | Valid: loss=1.585, acc= 59.1% | *
+| Epoch  49, time=199.2ms/ 76.8ms | Train: loss=0.651, acc= 85.4% | Valid: loss=1.573, acc= 59.8% | *
+| Epoch  50, time=199.1ms/ 76.8ms | Train: loss=0.599, acc= 87.1% | Valid: loss=1.579, acc= 59.8% | *
+| Epoch  51, time=199.8ms/ 76.8ms | Train: loss=0.556, acc= 88.6% | Valid: loss=1.579, acc= 59.9% | *
+| Epoch  52, time=199.2ms/ 76.8ms | Train: loss=0.518, acc= 89.9% | Valid: loss=1.587, acc= 60.1% | *
+| Epoch  53, time=199.4ms/ 76.8ms | Train: loss=0.485, acc= 90.8% | Valid: loss=1.600, acc= 60.1% | *
+| Epoch  54, time=199.2ms/ 76.9ms | Train: loss=0.455, acc= 92.0% | Valid: loss=1.611, acc= 60.4% | *
+| Epoch  55, time=199.7ms/ 76.8ms | Train: loss=0.427, acc= 92.9% | Valid: loss=1.623, acc= 59.9% | *
+| Epoch  56, time=199.3ms/ 76.8ms | Train: loss=0.402, acc= 93.8% | Valid: loss=1.635, acc= 60.2% | *
+| Epoch  57, time=199.2ms/ 76.8ms | Train: loss=0.378, acc= 94.7% | Valid: loss=1.651, acc= 60.2% | *
+| Epoch  58, time=200.7ms/ 77.9ms | Train: loss=0.357, acc= 95.3% | Valid: loss=1.669, acc= 59.8% | *
+| Epoch  59, time=201.2ms/ 77.9ms | Train: loss=0.337, acc= 96.0% | Valid: loss=1.683, acc= 59.5% | *
+| Epoch  60, time=199.8ms/ 76.8ms | Train: loss=0.319, acc= 96.6% | Valid: loss=1.702, acc= 59.8% | *
+| Epoch  61, time=199.1ms/ 76.8ms | Train: loss=0.302, acc= 97.1% | Valid: loss=1.716, acc= 59.6% | *
+| Epoch  62, time=199.2ms/ 76.8ms | Train: loss=0.286, acc= 97.6% | Valid: loss=1.736, acc= 59.4% | *
+| Epoch  63, time=199.2ms/ 76.7ms | Train: loss=0.272, acc= 97.9% | Valid: loss=1.751, acc= 59.6% | *
+| Epoch  64, time=199.2ms/ 77.5ms | Train: loss=0.259, acc= 98.3% | Valid: loss=1.767, acc= 59.5% | *
+| Epoch  65, time=199.7ms/ 76.7ms | Train: loss=0.248, acc= 98.5% | Valid: loss=1.781, acc= 59.5% | *
+| Epoch  66, time=199.6ms/ 77.2ms | Train: loss=0.238, acc= 98.8% | Valid: loss=1.796, acc= 59.3% | *
+| Epoch  67, time=200.1ms/ 77.3ms | Train: loss=0.227, acc= 99.0% | Valid: loss=1.813, acc= 59.1% | *
+| Epoch  68, time=199.8ms/ 77.3ms | Train: loss=0.219, acc= 99.1% | Valid: loss=1.836, acc= 58.9% | *
+| Epoch  69, time=199.8ms/ 77.2ms | Train: loss=0.210, acc= 99.3% | Valid: loss=1.852, acc= 59.1% | *
+| Epoch  70, time=199.8ms/ 77.2ms | Train: loss=0.203, acc= 99.4% | Valid: loss=1.862, acc= 58.5% | *
+| Epoch  71, time=199.9ms/ 77.2ms | Train: loss=0.195, acc= 99.5% | Valid: loss=1.880, acc= 58.5% | *
+| Epoch  72, time=199.6ms/ 77.2ms | Train: loss=0.190, acc= 99.6% | Valid: loss=1.893, acc= 58.6% | *
+| Epoch  73, time=199.8ms/ 77.5ms | Train: loss=0.185, acc= 99.7% | Valid: loss=1.910, acc= 58.3% | *
+| Epoch  74, time=199.8ms/ 77.2ms | Train: loss=0.179, acc= 99.8% | Valid: loss=1.924, acc= 58.4% | *
+| Epoch  75, time=199.8ms/ 77.2ms | Train: loss=0.174, acc= 99.8% | Valid: loss=1.936, acc= 58.4% | *
+| Epoch  76, time=199.8ms/ 77.3ms | Train: loss=0.170, acc= 99.8% | Valid: loss=1.949, acc= 58.1% | *
+| Epoch  77, time=199.8ms/ 77.5ms | Train: loss=0.167, acc= 99.9% | Valid: loss=1.958, acc= 58.0% | *
+| Epoch  78, time=199.7ms/ 77.0ms | Train: loss=0.163, acc= 99.9% | Valid: loss=1.974, acc= 58.3% | *
+| Epoch  79, time=199.7ms/ 77.2ms | Train: loss=0.160, acc= 99.9% | Valid: loss=1.988, acc= 58.2% | *
+| Epoch  80, time=199.8ms/ 77.2ms | Train: loss=0.158, acc= 99.9% | Valid: loss=1.999, acc= 57.8% | *
+| Epoch  81, time=199.6ms/ 76.7ms | Train: loss=0.155, acc= 99.9% | Valid: loss=2.010, acc= 58.0% | *
+| Epoch  82, time=199.7ms/ 77.3ms | Train: loss=0.153, acc= 99.9% | Valid: loss=2.015, acc= 57.8% | *
+| Epoch  83, time=199.8ms/ 77.2ms | Train: loss=0.151, acc= 99.9% | Valid: loss=2.030, acc= 57.5% | *
+| Epoch  84, time=199.8ms/ 77.2ms | Train: loss=0.149, acc= 99.9% | Valid: loss=2.039, acc= 58.1% | *
+| Epoch  85, time=199.8ms/ 77.2ms | Train: loss=0.147, acc= 99.9% | Valid: loss=2.045, acc= 57.8% | *
+| Epoch  86, time=199.8ms/ 77.2ms | Train: loss=0.146, acc= 99.9% | Valid: loss=2.054, acc= 57.7% | *
+| Epoch  87, time=199.8ms/ 77.2ms | Train: loss=0.144, acc= 99.9% | Valid: loss=2.065, acc= 57.7% | *
+| Epoch  88, time=199.9ms/ 77.2ms | Train: loss=0.143, acc=100.0% | Valid: loss=2.078, acc= 57.7% | *
+| Epoch  89, time=199.9ms/ 77.3ms | Train: loss=0.141, acc=100.0% | Valid: loss=2.087, acc= 58.0% | *
+| Epoch  90, time=199.8ms/ 77.2ms | Train: loss=0.140, acc=100.0% | Valid: loss=2.095, acc= 57.9% | *
+| Epoch  91, time=199.9ms/ 77.2ms | Train: loss=0.139, acc=100.0% | Valid: loss=2.107, acc= 57.5% | *
+| Epoch  92, time=199.9ms/ 77.2ms | Train: loss=0.138, acc=100.0% | Valid: loss=2.112, acc= 57.7% | *
+| Epoch  93, time=200.0ms/ 77.3ms | Train: loss=0.137, acc=100.0% | Valid: loss=2.119, acc= 57.4% | *
+| Epoch  94, time=199.8ms/ 77.2ms | Train: loss=0.136, acc=100.0% | Valid: loss=2.127, acc= 57.4% | *
+| Epoch  95, time=199.9ms/ 77.2ms | Train: loss=0.135, acc=100.0% | Valid: loss=2.136, acc= 57.5% | *
+| Epoch  96, time=199.9ms/ 77.3ms | Train: loss=0.134, acc=100.0% | Valid: loss=2.146, acc= 57.7% | *
+| Epoch  97, time=199.6ms/ 76.8ms | Train: loss=0.134, acc=100.0% | Valid: loss=2.156, acc= 57.8% | *
+| Epoch  98, time=199.4ms/ 77.2ms | Train: loss=0.133, acc=100.0% | Valid: loss=2.168, acc= 57.3% | *
+| Epoch  99, time=199.9ms/ 77.3ms | Train: loss=0.132, acc=100.0% | Valid: loss=2.171, acc= 57.6% | *
+| Epoch 100, time=199.8ms/ 77.3ms | Train: loss=0.131, acc=100.0% | Valid: loss=2.174, acc= 57.5% | *
+| Epoch 101, time=199.9ms/ 77.2ms | Train: loss=0.131, acc=100.0% | Valid: loss=2.184, acc= 57.5% | *
+| Epoch 102, time=199.9ms/ 77.2ms | Train: loss=0.130, acc=100.0% | Valid: loss=2.192, acc= 57.3% | *
+| Epoch 103, time=199.2ms/ 76.7ms | Train: loss=0.130, acc=100.0% | Valid: loss=2.199, acc= 57.5% | *
+| Epoch 104, time=199.2ms/ 76.7ms | Train: loss=0.129, acc=100.0% | Valid: loss=2.203, acc= 57.2% | *
+| Epoch 105, time=200.0ms/ 77.8ms | Train: loss=0.129, acc=100.0% | Valid: loss=2.204, acc= 57.5% | *
+| Epoch 106, time=200.5ms/ 76.7ms | Train: loss=0.128, acc=100.0% | Valid: loss=2.207, acc= 57.3% | *
+| Epoch 107, time=199.2ms/ 76.7ms | Train: loss=0.128, acc=100.0% | Valid: loss=2.214, acc= 57.3% | *
+| Epoch 108, time=199.1ms/ 76.7ms | Train: loss=0.127, acc=100.0% | Valid: loss=2.220, acc= 57.5% | *
+| Epoch 109, time=199.1ms/ 76.7ms | Train: loss=0.127, acc=100.0% | Valid: loss=2.225, acc= 57.3% | *
+| Epoch 110, time=199.4ms/ 77.5ms | Train: loss=0.126, acc=100.0% | Valid: loss=2.227, acc= 57.3% | *
+| Epoch 111, time=200.1ms/ 76.7ms | Train: loss=0.126, acc=100.0% | Valid: loss=2.237, acc= 57.0% | *
+| Epoch 112, time=199.5ms/ 77.2ms | Train: loss=0.126, acc=100.0% | Valid: loss=2.240, acc= 56.9% | *
+| Epoch 113, time=199.9ms/ 77.3ms | Train: loss=0.125, acc=100.0% | Valid: loss=2.247, acc= 57.1% | *
+| Epoch 114, time=199.8ms/ 77.2ms | Train: loss=0.125, acc=100.0% | Valid: loss=2.253, acc= 57.0% | *
+| Epoch 115, time=199.8ms/ 77.2ms | Train: loss=0.125, acc=100.0% | Valid: loss=2.255, acc= 56.9% | *
+| Epoch 116, time=199.8ms/ 77.2ms | Train: loss=0.124, acc=100.0% | Valid: loss=2.264, acc= 56.8% | *
+| Epoch 117, time=200.4ms/ 76.7ms | Train: loss=0.124, acc=100.0% | Valid: loss=2.265, acc= 57.4% | *
+| Epoch 118, time=199.1ms/ 76.7ms | Train: loss=0.124, acc=100.0% | Valid: loss=2.273, acc= 57.3% | *
+| Epoch 119, time=199.2ms/ 76.8ms | Train: loss=0.123, acc=100.0% | Valid: loss=2.275, acc= 57.1% | *
+| Epoch 120, time=199.2ms/ 76.8ms | Train: loss=0.123, acc=100.0% | Valid: loss=2.280, acc= 57.2% |
+| Epoch 121, time=199.2ms/ 76.8ms | Train: loss=0.123, acc=100.0% | Valid: loss=2.280, acc= 57.1% | *
+| Epoch 122, time=199.1ms/ 76.8ms | Train: loss=0.123, acc=100.0% | Valid: loss=2.287, acc= 56.8% | *
+| Epoch 123, time=199.2ms/ 76.7ms | Train: loss=0.123, acc=100.0% | Valid: loss=2.293, acc= 56.8% | *
+| Epoch 124, time=199.1ms/ 76.8ms | Train: loss=0.122, acc=100.0% | Valid: loss=2.294, acc= 57.1% | *
+| Epoch 125, time=199.1ms/ 76.8ms | Train: loss=0.122, acc=100.0% | Valid: loss=2.294, acc= 56.9% | *
+| Epoch 126, time=199.2ms/ 76.8ms | Train: loss=0.122, acc=100.0% | Valid: loss=2.303, acc= 57.1% | *
+| Epoch 127, time=199.2ms/ 76.8ms | Train: loss=0.122, acc=100.0% | Valid: loss=2.306, acc= 57.2% |
+| Epoch 128, time=199.5ms/ 76.8ms | Train: loss=0.121, acc=100.0% | Valid: loss=2.305, acc= 57.2% | *
+| Epoch 129, time=199.2ms/ 76.8ms | Train: loss=0.121, acc=100.0% | Valid: loss=2.314, acc= 56.7% | *
+| Epoch 130, time=200.3ms/ 77.9ms | Train: loss=0.121, acc=100.0% | Valid: loss=2.320, acc= 56.6% | *
+| Epoch 131, time=201.2ms/ 77.8ms | Train: loss=0.121, acc=100.0% | Valid: loss=2.328, acc= 57.2% | *
+| Epoch 132, time=200.1ms/ 76.8ms | Train: loss=0.120, acc=100.0% | Valid: loss=2.331, acc= 56.8% | *
+| Epoch 133, time=199.1ms/ 76.7ms | Train: loss=0.120, acc=100.0% | Valid: loss=2.330, acc= 56.8% | *
+| Epoch 134, time=199.2ms/ 76.8ms | Train: loss=0.120, acc=100.0% | Valid: loss=2.324, acc= 57.1% | *
+| Epoch 135, time=200.8ms/ 77.9ms | Train: loss=0.120, acc=100.0% | Valid: loss=2.328, acc= 57.0% | *
+| Epoch 136, time=199.2ms/ 76.8ms | Train: loss=0.120, acc=100.0% | Valid: loss=2.339, acc= 56.9% | *
+| Epoch 137, time=199.8ms/ 77.2ms | Train: loss=0.120, acc=100.0% | Valid: loss=2.340, acc= 56.7% | *
+| Epoch 138, time=199.9ms/ 77.3ms | Train: loss=0.119, acc=100.0% | Valid: loss=2.345, acc= 57.0% | *
+| Epoch 139, time=199.8ms/ 77.2ms | Train: loss=0.119, acc=100.0% | Valid: loss=2.350, acc= 56.7% | *
+| Epoch 140, time=199.9ms/ 77.5ms | Train: loss=0.119, acc=100.0% | Valid: loss=2.350, acc= 56.5% |
+| Epoch 141, time=199.9ms/ 77.2ms | Train: loss=0.119, acc=100.0% | Valid: loss=2.362, acc= 56.8% | *
+| Epoch 142, time=199.8ms/ 77.2ms | Train: loss=0.119, acc=100.0% | Valid: loss=2.366, acc= 56.6% | *
+| Epoch 143, time=199.8ms/ 77.2ms | Train: loss=0.118, acc=100.0% | Valid: loss=2.371, acc= 56.6% | *
+| Epoch 144, time=199.3ms/ 76.7ms | Train: loss=0.118, acc=100.0% | Valid: loss=2.369, acc= 56.7% | *
+| Epoch 145, time=199.5ms/ 76.8ms | Train: loss=0.118, acc=100.0% | Valid: loss=2.373, acc= 56.7% | *
+| Epoch 146, time=199.2ms/ 76.8ms | Train: loss=0.118, acc=100.0% | Valid: loss=2.377, acc= 57.0% |
+| Epoch 147, time=199.1ms/ 76.7ms | Train: loss=0.118, acc=100.0% | Valid: loss=2.382, acc= 56.7% | *
+| Epoch 148, time=199.6ms/ 77.2ms | Train: loss=0.118, acc=100.0% | Valid: loss=2.385, acc= 56.9% | *
+| Epoch 149, time=199.6ms/ 76.8ms | Train: loss=0.118, acc=100.0% | Valid: loss=2.387, acc= 57.0% | *
+| Epoch 150, time=199.1ms/ 76.7ms | Train: loss=0.117, acc=100.0% | Valid: loss=2.389, acc= 56.8% | *
+| Epoch 151, time=199.1ms/ 76.7ms | Train: loss=0.117, acc=100.0% | Valid: loss=2.393, acc= 57.0% | *
+| Epoch 152, time=199.3ms/ 77.3ms | Train: loss=0.117, acc=100.0% | Valid: loss=2.391, acc= 57.0% | *
+| Epoch 153, time=199.8ms/ 77.2ms | Train: loss=0.117, acc=100.0% | Valid: loss=2.395, acc= 56.9% | *
+| Epoch 154, time=199.9ms/ 77.2ms | Train: loss=0.117, acc=100.0% | Valid: loss=2.397, acc= 56.6% | *
+| Epoch 155, time=199.8ms/ 77.2ms | Train: loss=0.117, acc=100.0% | Valid: loss=2.397, acc= 56.8% |
+| Epoch 156, time=199.8ms/ 77.2ms | Train: loss=0.117, acc=100.0% | Valid: loss=2.403, acc= 56.7% | *
+| Epoch 157, time=199.7ms/ 76.8ms | Train: loss=0.117, acc=100.0% | Valid: loss=2.400, acc= 56.6% |
+| Epoch 158, time=199.2ms/ 76.7ms | Train: loss=0.116, acc=100.0% | Valid: loss=2.402, acc= 56.9% | *
+| Epoch 159, time=199.2ms/ 76.8ms | Train: loss=0.117, acc=100.0% | Valid: loss=2.416, acc= 56.6% |
+| Epoch 160, time=199.1ms/ 76.8ms | Train: loss=0.116, acc=100.0% | Valid: loss=2.408, acc= 56.6% | *
+| Epoch 161, time=199.2ms/ 76.8ms | Train: loss=0.116, acc=100.0% | Valid: loss=2.411, acc= 56.8% |
+| Epoch 162, time=199.1ms/ 76.8ms | Train: loss=0.116, acc=100.0% | Valid: loss=2.417, acc= 57.0% |
+| Epoch 163, time=199.1ms/ 76.8ms | Train: loss=0.116, acc=100.0% | Valid: loss=2.415, acc= 56.8% | *
+| Epoch 164, time=199.1ms/ 76.8ms | Train: loss=0.115, acc=100.0% | Valid: loss=2.420, acc= 56.7% | *
+| Epoch 165, time=199.7ms/ 76.7ms | Train: loss=0.115, acc=100.0% | Valid: loss=2.416, acc= 56.6% | *
+| Epoch 166, time=199.1ms/ 76.7ms | Train: loss=0.115, acc=100.0% | Valid: loss=2.424, acc= 56.5% | *
+| Epoch 167, time=199.1ms/ 76.8ms | Train: loss=0.115, acc=100.0% | Valid: loss=2.426, acc= 56.6% | *
+| Epoch 168, time=199.1ms/ 76.7ms | Train: loss=0.116, acc=100.0% | Valid: loss=2.424, acc= 56.8% |
+| Epoch 169, time=199.3ms/ 77.2ms | Train: loss=0.115, acc=100.0% | Valid: loss=2.425, acc= 56.6% | *
+| Epoch 170, time=199.9ms/ 77.2ms | Train: loss=0.115, acc=100.0% | Valid: loss=2.425, acc= 56.8% | *
+| Epoch 171, time=199.2ms/ 76.7ms | Train: loss=0.115, acc=100.0% | Valid: loss=2.430, acc= 56.5% |
+| Epoch 172, time=199.6ms/ 77.9ms | Train: loss=0.114, acc=100.0% | Valid: loss=2.433, acc= 56.9% | *
+| Epoch 173, time=201.2ms/ 77.8ms | Train: loss=0.115, acc=100.0% | Valid: loss=2.434, acc= 56.5% |
+| Epoch 174, time=200.4ms/ 76.8ms | Train: loss=0.115, acc=100.0% | Valid: loss=2.443, acc= 56.8% |
+| Epoch 175, time=199.2ms/ 76.8ms | Train: loss=0.114, acc=100.0% | Valid: loss=2.438, acc= 56.4% | *
+| Epoch 176, time=199.2ms/ 76.8ms | Train: loss=0.114, acc=100.0% | Valid: loss=2.446, acc= 56.7% | *
+| Epoch 177, time=199.9ms/ 76.7ms | Train: loss=0.114, acc=100.0% | Valid: loss=2.439, acc= 56.5% | *
+| Epoch 178, time=199.1ms/ 76.7ms | Train: loss=0.114, acc=100.0% | Valid: loss=2.449, acc= 56.4% |
+| Epoch 179, time=200.6ms/ 77.8ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.448, acc= 56.6% | *
+| Epoch 180, time=199.9ms/ 76.7ms | Train: loss=0.114, acc=100.0% | Valid: loss=2.442, acc= 56.7% |
+| Epoch 181, time=199.1ms/ 76.7ms | Train: loss=0.114, acc=100.0% | Valid: loss=2.452, acc= 56.4% |
+| Epoch 182, time=199.1ms/ 76.8ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.452, acc= 56.4% | *
+| Epoch 183, time=199.2ms/ 76.7ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.455, acc= 56.7% | *
+| Epoch 184, time=199.1ms/ 76.7ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.460, acc= 56.6% |
+| Epoch 185, time=199.1ms/ 76.8ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.463, acc= 56.2% |
+| Epoch 186, time=199.9ms/ 77.1ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.466, acc= 56.5% | *
+| Epoch 187, time=199.8ms/ 77.2ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.462, acc= 56.4% | *
+| Epoch 188, time=199.8ms/ 77.2ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.466, acc= 56.7% | *
+| Epoch 189, time=199.8ms/ 77.2ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.471, acc= 56.8% |
+| Epoch 190, time=199.6ms/ 76.7ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.475, acc= 56.9% | *
+| Epoch 191, time=199.1ms/ 76.7ms | Train: loss=0.112, acc=100.0% | Valid: loss=2.475, acc= 56.6% | *
+| Epoch 192, time=199.1ms/ 76.7ms | Train: loss=0.112, acc=100.0% | Valid: loss=2.466, acc= 56.6% | *
+| Epoch 193, time=200.4ms/ 76.7ms | Train: loss=0.113, acc=100.0% | Valid: loss=2.478, acc= 56.4% |
+| Epoch 194, time=199.7ms/ 76.7ms | Train: loss=0.112, acc=100.0% | Valid: loss=2.471, acc= 56.9% | *
+| Epoch 195, time=199.1ms/ 76.8ms | Train: loss=0.112, acc=100.0% | Valid: loss=2.480, acc= 56.5% | *
+| Epoch 196, time=199.2ms/ 76.7ms | Train: loss=0.112, acc=100.0% | Valid: loss=2.479, acc= 56.9% |
+| Epoch 197, time=199.1ms/ 76.7ms | Train: loss=0.112, acc=100.0% | Valid: loss=2.484, acc= 56.6% |
+| Epoch 198, time=199.0ms/ 76.7ms | Train: loss=0.112, acc=100.0% | Valid: loss=2.479, acc= 56.7% | *
+| Epoch 199, time=199.1ms/ 76.7ms | Train: loss=0.112, acc=100.0% | Valid: loss=2.494, acc= 56.8% |
+| Epoch 200, time=199.1ms/ 76.7ms | Train: loss=0.111, acc=100.0% | Valid: loss=2.488, acc= 56.6% | *
+----------------------------------------------------------------------------------------------------
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  0 - cifar100-all-0 : loss=1.483, acc= 60.6% <<<
+Save at ../res/20211131815_cifar_hat-res50_0.txt
+****************************************************************************************************
+Task  1 (cifar100-aug-1)
+****************************************************************************************************
+Train
+[52, 65, 81, 102, 128, 160]
+202111318153_Original_SGD_momentum_lr0.1_factor3_task1
+epochs:200
+| Epoch   1, time=203.5ms/ 77.2ms | Train: loss=1.504, acc= 59.2% | Valid: loss=1.907, acc= 50.5% | *
+| Epoch   2, time=203.6ms/ 77.2ms | Train: loss=1.272, acc= 64.8% | Valid: loss=1.739, acc= 55.0% | *
+| Epoch   3, time=203.3ms/ 77.2ms | Train: loss=1.257, acc= 64.9% | Valid: loss=1.751, acc= 54.3% | *
+| Epoch   4, time=203.5ms/ 77.2ms | Train: loss=1.184, acc= 66.8% | Valid: loss=1.750, acc= 54.6% | *
+| Epoch   5, time=203.4ms/ 77.2ms | Train: loss=1.171, acc= 67.0% | Valid: loss=1.710, acc= 54.2% | *
+| Epoch   6, time=203.4ms/ 77.2ms | Train: loss=1.197, acc= 65.9% | Valid: loss=1.771, acc= 53.3% |
+| Epoch   7, time=203.3ms/ 77.2ms | Train: loss=1.220, acc= 65.8% | Valid: loss=1.743, acc= 53.9% |
+| Epoch   8, time=203.4ms/ 77.2ms | Train: loss=1.306, acc= 63.6% | Valid: loss=1.823, acc= 52.1% |
+| Epoch   9, time=203.3ms/ 77.2ms | Train: loss=1.332, acc= 62.9% | Valid: loss=1.807, acc= 51.8% | lr=3.3e-02
+| Epoch  10, time=200.5ms/ 77.2ms | Train: loss=0.945, acc= 74.1% | Valid: loss=1.522, acc= 59.1% | *
+| Epoch  11, time=200.4ms/ 77.2ms | Train: loss=0.859, acc= 76.4% | Valid: loss=1.503, acc= 60.0% | *
+| Epoch  12, time=200.5ms/ 77.2ms | Train: loss=0.798, acc= 78.0% | Valid: loss=1.505, acc= 59.7% | *
+| Epoch  13, time=200.5ms/ 77.2ms | Train: loss=0.750, acc= 79.4% | Valid: loss=1.508, acc= 59.9% | *
+| Epoch  14, time=200.4ms/ 77.2ms | Train: loss=0.709, acc= 80.7% | Valid: loss=1.505, acc= 60.2% | *
+| Epoch  15, time=200.4ms/ 77.4ms | Train: loss=0.673, acc= 81.9% | Valid: loss=1.515, acc= 60.2% | *
+| Epoch  16, time=201.1ms/ 77.7ms | Train: loss=0.641, acc= 82.9% | Valid: loss=1.514, acc= 60.4% | *
+| Epoch  17, time=201.1ms/ 77.6ms | Train: loss=0.607, acc= 84.0% | Valid: loss=1.522, acc= 60.5% | *
+| Epoch  18, time=200.6ms/ 77.2ms | Train: loss=0.576, acc= 85.2% | Valid: loss=1.528, acc= 60.3% | *
+| Epoch  19, time=201.5ms/ 77.2ms | Train: loss=0.548, acc= 86.1% | Valid: loss=1.538, acc= 60.2% | *
+| Epoch  20, time=200.5ms/ 77.2ms | Train: loss=0.515, acc= 87.5% | Valid: loss=1.550, acc= 60.6% | *
+| Epoch  21, time=200.4ms/ 77.2ms | Train: loss=0.487, acc= 88.4% | Valid: loss=1.564, acc= 60.3% | *
+| Epoch  22, time=200.4ms/ 77.5ms | Train: loss=0.459, acc= 89.5% | Valid: loss=1.579, acc= 60.4% | *
+| Epoch  23, time=201.1ms/ 77.7ms | Train: loss=0.433, acc= 90.4% | Valid: loss=1.594, acc= 59.8% | *
+| Epoch  24, time=200.7ms/ 77.2ms | Train: loss=0.408, acc= 91.2% | Valid: loss=1.605, acc= 59.7% | *
+| Epoch  25, time=200.5ms/ 77.3ms | Train: loss=0.384, acc= 92.2% | Valid: loss=1.620, acc= 59.5% | *
+| Epoch  26, time=201.3ms/ 77.2ms | Train: loss=0.362, acc= 93.0% | Valid: loss=1.637, acc= 59.1% | *
+| Epoch  27, time=200.5ms/ 77.2ms | Train: loss=0.339, acc= 93.7% | Valid: loss=1.658, acc= 59.0% | *
+| Epoch  28, time=200.5ms/ 77.2ms | Train: loss=0.317, acc= 94.5% | Valid: loss=1.673, acc= 59.1% | *
+| Epoch  29, time=200.5ms/ 77.2ms | Train: loss=0.297, acc= 95.1% | Valid: loss=1.694, acc= 58.7% | *
+| Epoch  30, time=200.7ms/ 77.7ms | Train: loss=0.276, acc= 95.9% | Valid: loss=1.705, acc= 58.4% | *
+| Epoch  31, time=201.4ms/ 77.5ms | Train: loss=0.260, acc= 96.4% | Valid: loss=1.726, acc= 58.8% | *
+| Epoch  32, time=201.0ms/ 77.7ms | Train: loss=0.244, acc= 96.9% | Valid: loss=1.738, acc= 58.3% | *
+| Epoch  33, time=201.0ms/ 77.7ms | Train: loss=0.228, acc= 97.3% | Valid: loss=1.758, acc= 58.0% | *
+| Epoch  34, time=201.1ms/ 77.7ms | Train: loss=0.213, acc= 97.8% | Valid: loss=1.784, acc= 57.9% | *
+| Epoch  35, time=201.0ms/ 77.7ms | Train: loss=0.201, acc= 98.1% | Valid: loss=1.792, acc= 58.0% | *
+| Epoch  36, time=201.0ms/ 77.7ms | Train: loss=0.188, acc= 98.4% | Valid: loss=1.809, acc= 57.6% | *
+| Epoch  37, time=201.0ms/ 77.7ms | Train: loss=0.179, acc= 98.5% | Valid: loss=1.824, acc= 57.9% | *
+| Epoch  38, time=200.9ms/ 77.2ms | Train: loss=0.169, acc= 98.7% | Valid: loss=1.846, acc= 57.7% | *
+| Epoch  39, time=200.5ms/ 77.2ms | Train: loss=0.159, acc= 99.1% | Valid: loss=1.857, acc= 57.5% | *
+| Epoch  40, time=200.4ms/ 77.2ms | Train: loss=0.152, acc= 99.2% | Valid: loss=1.882, acc= 57.1% | *
+| Epoch  41, time=200.4ms/ 77.2ms | Train: loss=0.143, acc= 99.3% | Valid: loss=1.901, acc= 57.3% | *
+| Epoch  42, time=200.4ms/ 77.2ms | Train: loss=0.138, acc= 99.4% | Valid: loss=1.907, acc= 57.2% | *
+| Epoch  43, time=200.5ms/ 77.2ms | Train: loss=0.130, acc= 99.5% | Valid: loss=1.927, acc= 56.7% | *
+| Epoch  44, time=200.5ms/ 77.2ms | Train: loss=0.125, acc= 99.5% | Valid: loss=1.934, acc= 57.0% | *
+| Epoch  45, time=200.5ms/ 77.5ms | Train: loss=0.120, acc= 99.6% | Valid: loss=1.952, acc= 56.7% | *
+| Epoch  46, time=201.0ms/ 77.7ms | Train: loss=0.115, acc= 99.6% | Valid: loss=1.967, acc= 56.9% | *
+| Epoch  47, time=201.0ms/ 77.7ms | Train: loss=0.111, acc= 99.7% | Valid: loss=1.980, acc= 56.7% | *
+| Epoch  48, time=201.0ms/ 77.7ms | Train: loss=0.107, acc= 99.7% | Valid: loss=1.983, acc= 57.1% | *
+| Epoch  49, time=201.0ms/ 77.7ms | Train: loss=0.104, acc= 99.7% | Valid: loss=2.003, acc= 56.4% | *
+| Epoch  50, time=201.0ms/ 77.7ms | Train: loss=0.102, acc= 99.8% | Valid: loss=2.015, acc= 56.7% | *
+| Epoch  51, time=200.8ms/ 77.2ms | Train: loss=0.099, acc= 99.8% | Valid: loss=2.026, acc= 56.8% | *
+| Epoch  52, time=200.5ms/ 77.3ms | Train: loss=0.095, acc= 99.8% | Valid: loss=2.040, acc= 56.3% | *
+| Epoch  53, time=200.5ms/ 77.3ms | Train: loss=0.093, acc= 99.8% | Valid: loss=2.046, acc= 56.4% | *
+| Epoch  54, time=200.5ms/ 77.3ms | Train: loss=0.090, acc= 99.8% | Valid: loss=2.054, acc= 56.4% | *
+| Epoch  55, time=200.5ms/ 77.2ms | Train: loss=0.087, acc= 99.9% | Valid: loss=2.065, acc= 56.0% | *
+| Epoch  56, time=200.5ms/ 77.2ms | Train: loss=0.088, acc= 99.8% | Valid: loss=2.069, acc= 56.7% |
+| Epoch  57, time=200.5ms/ 77.3ms | Train: loss=0.084, acc= 99.9% | Valid: loss=2.092, acc= 56.3% | *
+| Epoch  58, time=200.5ms/ 77.2ms | Train: loss=0.082, acc= 99.9% | Valid: loss=2.089, acc= 56.5% | *
+| Epoch  59, time=200.4ms/ 77.2ms | Train: loss=0.081, acc= 99.9% | Valid: loss=2.099, acc= 56.8% | *
+| Epoch  60, time=202.2ms/ 78.3ms | Train: loss=0.080, acc= 99.9% | Valid: loss=2.108, acc= 56.3% | *
+| Epoch  61, time=202.5ms/ 78.3ms | Train: loss=0.079, acc= 99.9% | Valid: loss=2.118, acc= 56.1% | *
+| Epoch  62, time=200.9ms/ 77.5ms | Train: loss=0.077, acc= 99.9% | Valid: loss=2.124, acc= 56.2% | *
+| Epoch  63, time=200.7ms/ 77.2ms | Train: loss=0.077, acc= 99.9% | Valid: loss=2.130, acc= 56.5% | *
+| Epoch  64, time=200.9ms/ 78.3ms | Train: loss=0.075, acc= 99.9% | Valid: loss=2.135, acc= 56.4% | *
+| Epoch  65, time=200.6ms/ 77.4ms | Train: loss=0.074, acc= 99.9% | Valid: loss=2.150, acc= 56.0% | *
+| Epoch  66, time=201.1ms/ 77.7ms | Train: loss=0.073, acc= 99.9% | Valid: loss=2.154, acc= 56.0% | *
+| Epoch  67, time=201.1ms/ 77.7ms | Train: loss=0.072, acc= 99.9% | Valid: loss=2.160, acc= 56.4% | *
+| Epoch  68, time=201.1ms/ 77.7ms | Train: loss=0.072, acc= 99.9% | Valid: loss=2.164, acc= 56.3% | *
+| Epoch  69, time=201.2ms/ 77.7ms | Train: loss=0.071, acc= 99.9% | Valid: loss=2.171, acc= 56.2% | *
+| Epoch  70, time=201.2ms/ 77.2ms | Train: loss=0.070, acc= 99.9% | Valid: loss=2.174, acc= 56.2% | *
+| Epoch  71, time=200.4ms/ 77.5ms | Train: loss=0.069, acc= 99.9% | Valid: loss=2.190, acc= 56.5% | *
+| Epoch  72, time=201.1ms/ 77.7ms | Train: loss=0.068, acc= 99.9% | Valid: loss=2.191, acc= 56.2% | *
+| Epoch  73, time=201.3ms/ 77.7ms | Train: loss=0.068, acc= 99.9% | Valid: loss=2.191, acc= 56.1% | *
+| Epoch  74, time=201.1ms/ 77.7ms | Train: loss=0.067, acc= 99.9% | Valid: loss=2.197, acc= 56.3% | *
+| Epoch  75, time=202.4ms/ 77.2ms | Train: loss=0.066, acc= 99.9% | Valid: loss=2.207, acc= 56.4% | *
+| Epoch  76, time=200.4ms/ 77.2ms | Train: loss=0.066, acc= 99.9% | Valid: loss=2.210, acc= 56.4% | *
+| Epoch  77, time=200.4ms/ 77.2ms | Train: loss=0.065, acc= 99.9% | Valid: loss=2.216, acc= 55.9% | *
+| Epoch  78, time=200.4ms/ 77.2ms | Train: loss=0.065, acc= 99.9% | Valid: loss=2.225, acc= 56.4% | *
+| Epoch  79, time=200.4ms/ 77.2ms | Train: loss=0.065, acc= 99.9% | Valid: loss=2.231, acc= 56.0% | *
+| Epoch  80, time=200.4ms/ 77.2ms | Train: loss=0.064, acc=100.0% | Valid: loss=2.229, acc= 56.2% | *
+| Epoch  81, time=200.4ms/ 77.2ms | Train: loss=0.063, acc= 99.9% | Valid: loss=2.237, acc= 56.4% | *
+| Epoch  82, time=200.8ms/ 77.3ms | Train: loss=0.063, acc= 99.9% | Valid: loss=2.239, acc= 56.4% | *
+| Epoch  83, time=200.4ms/ 77.6ms | Train: loss=0.062, acc= 99.9% | Valid: loss=2.250, acc= 55.9% | *
+| Epoch  84, time=201.1ms/ 77.7ms | Train: loss=0.062, acc= 99.9% | Valid: loss=2.253, acc= 56.3% |
+| Epoch  85, time=201.1ms/ 77.8ms | Train: loss=0.063, acc= 99.9% | Valid: loss=2.258, acc= 56.3% |
+| Epoch  86, time=201.1ms/ 77.7ms | Train: loss=0.061, acc=100.0% | Valid: loss=2.265, acc= 56.5% | *
+| Epoch  87, time=201.3ms/ 77.2ms | Train: loss=0.061, acc=100.0% | Valid: loss=2.271, acc= 56.2% |
+| Epoch  88, time=200.4ms/ 77.2ms | Train: loss=0.061, acc=100.0% | Valid: loss=2.280, acc= 56.0% | *
+| Epoch  89, time=200.4ms/ 77.2ms | Train: loss=0.060, acc=100.0% | Valid: loss=2.281, acc= 56.0% | *
+| Epoch  90, time=200.7ms/ 77.2ms | Train: loss=0.061, acc=100.0% | Valid: loss=2.285, acc= 56.5% |
+| Epoch  91, time=200.8ms/ 77.2ms | Train: loss=0.060, acc=100.0% | Valid: loss=2.294, acc= 55.9% | *
+| Epoch  92, time=200.4ms/ 77.3ms | Train: loss=0.059, acc=100.0% | Valid: loss=2.289, acc= 56.1% | *
+| Epoch  93, time=200.8ms/ 77.2ms | Train: loss=0.059, acc=100.0% | Valid: loss=2.313, acc= 55.9% | *
+| Epoch  94, time=200.4ms/ 77.3ms | Train: loss=0.059, acc=100.0% | Valid: loss=2.302, acc= 55.8% | *
+| Epoch  95, time=200.6ms/ 78.0ms | Train: loss=0.058, acc=100.0% | Valid: loss=2.305, acc= 55.9% | *
+| Epoch  96, time=201.1ms/ 77.7ms | Train: loss=0.058, acc=100.0% | Valid: loss=2.304, acc= 56.0% | *
+| Epoch  97, time=201.1ms/ 77.7ms | Train: loss=0.058, acc=100.0% | Valid: loss=2.311, acc= 56.0% | *
+| Epoch  98, time=201.1ms/ 77.7ms | Train: loss=0.057, acc=100.0% | Valid: loss=2.312, acc= 55.9% | *
+| Epoch  99, time=200.5ms/ 77.3ms | Train: loss=0.058, acc=100.0% | Valid: loss=2.320, acc= 55.6% |
+| Epoch 100, time=200.4ms/ 77.2ms | Train: loss=0.058, acc=100.0% | Valid: loss=2.332, acc= 56.1% |
+| Epoch 101, time=200.4ms/ 77.3ms | Train: loss=0.057, acc=100.0% | Valid: loss=2.328, acc= 56.1% | *
+| Epoch 102, time=200.5ms/ 77.3ms | Train: loss=0.059, acc= 99.9% | Valid: loss=2.339, acc= 55.4% |
+| Epoch 103, time=200.4ms/ 77.3ms | Train: loss=0.056, acc=100.0% | Valid: loss=2.319, acc= 56.1% | *
+| Epoch 104, time=200.5ms/ 77.3ms | Train: loss=0.057, acc=100.0% | Valid: loss=2.330, acc= 56.0% |
+| Epoch 105, time=200.5ms/ 77.3ms | Train: loss=0.056, acc=100.0% | Valid: loss=2.344, acc= 55.9% | *
+| Epoch 106, time=200.4ms/ 77.3ms | Train: loss=0.056, acc=100.0% | Valid: loss=2.339, acc= 56.0% | *
+| Epoch 107, time=200.4ms/ 77.2ms | Train: loss=0.057, acc=100.0% | Valid: loss=2.353, acc= 55.7% |
+| Epoch 108, time=200.4ms/ 77.2ms | Train: loss=0.056, acc=100.0% | Valid: loss=2.349, acc= 56.0% |
+| Epoch 109, time=200.5ms/ 77.2ms | Train: loss=0.056, acc=100.0% | Valid: loss=2.366, acc= 55.5% |
+| Epoch 110, time=200.5ms/ 77.3ms | Train: loss=0.055, acc=100.0% | Valid: loss=2.355, acc= 55.9% | *
+| Epoch 111, time=200.4ms/ 77.3ms | Train: loss=0.056, acc=100.0% | Valid: loss=2.353, acc= 56.0% |
+| Epoch 112, time=200.5ms/ 77.2ms | Train: loss=0.055, acc=100.0% | Valid: loss=2.391, acc= 55.4% |
+| Epoch 113, time=200.4ms/ 77.2ms | Train: loss=0.054, acc=100.0% | Valid: loss=2.363, acc= 55.9% | *
+| Epoch 114, time=201.8ms/ 78.3ms | Train: loss=0.055, acc=100.0% | Valid: loss=2.366, acc= 56.0% |
+| Epoch 115, time=200.7ms/ 77.2ms | Train: loss=0.055, acc=100.0% | Valid: loss=2.373, acc= 56.1% |
+| Epoch 116, time=200.4ms/ 77.2ms | Train: loss=0.055, acc=100.0% | Valid: loss=2.391, acc= 55.6% |
+| Epoch 117, time=200.4ms/ 77.2ms | Train: loss=0.055, acc=100.0% | Valid: loss=2.365, acc= 56.0% | lr=1.1e-02
+| Epoch 118, time=200.4ms/ 77.3ms | Train: loss=0.053, acc=100.0% | Valid: loss=2.375, acc= 55.8% | *
+| Epoch 119, time=201.0ms/ 77.7ms | Train: loss=0.053, acc=100.0% | Valid: loss=2.378, acc= 55.7% | *
+| Epoch 120, time=201.1ms/ 77.7ms | Train: loss=0.053, acc=100.0% | Valid: loss=2.379, acc= 55.6% | *
+| Epoch 121, time=200.7ms/ 77.2ms | Train: loss=0.053, acc=100.0% | Valid: loss=2.374, acc= 55.9% | *
+| Epoch 122, time=200.4ms/ 77.2ms | Train: loss=0.053, acc=100.0% | Valid: loss=2.375, acc= 56.1% | *
+| Epoch 123, time=200.4ms/ 77.2ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.379, acc= 55.8% | *
+| Epoch 124, time=200.4ms/ 77.3ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.383, acc= 55.9% | *
+| Epoch 125, time=200.4ms/ 77.2ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.382, acc= 55.9% | *
+| Epoch 126, time=200.4ms/ 77.2ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.387, acc= 55.8% | *
+| Epoch 127, time=200.4ms/ 77.6ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.387, acc= 56.0% |
+| Epoch 128, time=200.4ms/ 77.3ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.391, acc= 55.7% |
+| Epoch 129, time=201.1ms/ 78.0ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.384, acc= 55.9% | *
+| Epoch 130, time=200.6ms/ 77.2ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.385, acc= 56.2% |
+| Epoch 131, time=200.8ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.390, acc= 55.8% |
+| Epoch 132, time=201.1ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.391, acc= 56.3% | *
+| Epoch 133, time=201.1ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.391, acc= 56.1% | *
+| Epoch 134, time=201.1ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.390, acc= 56.1% |
+| Epoch 135, time=201.1ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.390, acc= 56.2% | *
+| Epoch 136, time=201.1ms/ 77.8ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.395, acc= 56.0% |
+| Epoch 137, time=201.1ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.393, acc= 56.0% |
+| Epoch 138, time=201.1ms/ 77.7ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.391, acc= 56.2% | *
+| Epoch 139, time=200.7ms/ 77.2ms | Train: loss=0.052, acc=100.0% | Valid: loss=2.393, acc= 56.1% |
+| Epoch 140, time=200.4ms/ 77.3ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.395, acc= 55.8% | *
+| Epoch 141, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.399, acc= 56.0% |
+| Epoch 142, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.400, acc= 55.7% |
+| Epoch 143, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.394, acc= 55.8% | *
+| Epoch 144, time=200.5ms/ 78.3ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.397, acc= 55.7% | *
+| Epoch 145, time=201.6ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.396, acc= 56.1% | *
+| Epoch 146, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.402, acc= 56.0% |
+| Epoch 147, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.407, acc= 55.9% |
+| Epoch 148, time=200.7ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.403, acc= 56.3% |
+| Epoch 149, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.402, acc= 56.1% | *
+| Epoch 150, time=201.0ms/ 77.7ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.404, acc= 55.6% | *
+| Epoch 151, time=201.2ms/ 77.6ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.407, acc= 56.0% |
+| Epoch 152, time=201.1ms/ 77.7ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.406, acc= 55.8% |
+| Epoch 153, time=201.0ms/ 77.7ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.410, acc= 55.7% |
+| Epoch 154, time=201.0ms/ 77.7ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.419, acc= 55.6% | lr=3.7e-03
+| Epoch 155, time=200.8ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.410, acc= 55.8% | *
+| Epoch 156, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.414, acc= 55.8% | *
+| Epoch 157, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.411, acc= 55.9% |
+| Epoch 158, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.413, acc= 56.1% | *
+| Epoch 159, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.411, acc= 56.0% |
+| Epoch 160, time=200.4ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.410, acc= 55.9% | *
+| Epoch 161, time=200.5ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.409, acc= 55.8% |
+| Epoch 162, time=201.7ms/ 77.2ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.413, acc= 55.8% | *
+| Epoch 163, time=200.4ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.415, acc= 56.1% | *
+| Epoch 164, time=200.4ms/ 77.6ms | Train: loss=0.051, acc=100.0% | Valid: loss=2.413, acc= 55.9% |
+| Epoch 165, time=201.2ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.413, acc= 56.0% | *
+| Epoch 166, time=201.1ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.412, acc= 56.2% |
+| Epoch 167, time=201.1ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.411, acc= 56.1% | *
+| Epoch 168, time=201.1ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.415, acc= 56.0% |
+| Epoch 169, time=201.1ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 55.9% | *
+| Epoch 170, time=201.1ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.414, acc= 56.0% |
+| Epoch 171, time=201.1ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.412, acc= 56.0% | *
+| Epoch 172, time=201.1ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.414, acc= 56.0% | *
+| Epoch 173, time=200.5ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.411, acc= 56.1% |
+| Epoch 174, time=200.4ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.415, acc= 56.1% |
+| Epoch 175, time=200.4ms/ 77.3ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.415, acc= 56.1% | *
+| Epoch 176, time=200.4ms/ 77.3ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.418, acc= 56.1% |
+| Epoch 177, time=200.5ms/ 78.3ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.414, acc= 56.1% |
+| Epoch 178, time=201.1ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.418, acc= 56.2% |
+| Epoch 179, time=201.0ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.418, acc= 56.2% | lr=1.2e-03
+| Epoch 180, time=200.4ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.418, acc= 56.2% |
+| Epoch 181, time=200.4ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.417, acc= 56.1% |
+| Epoch 182, time=200.4ms/ 77.6ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.419, acc= 56.1% |
+| Epoch 183, time=201.0ms/ 77.3ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.417, acc= 56.0% | lr=4.1e-04
+| Epoch 184, time=201.9ms/ 78.3ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.417, acc= 55.9% |
+| Epoch 185, time=200.7ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.417, acc= 56.0% |
+| Epoch 186, time=200.4ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.417, acc= 56.0% |
+| Epoch 187, time=200.4ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% | lr=1.4e-04
+| Epoch 188, time=200.4ms/ 77.3ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.417, acc= 55.9% |
+| Epoch 189, time=200.4ms/ 77.3ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% |
+| Epoch 190, time=200.4ms/ 77.3ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% |
+| Epoch 191, time=200.6ms/ 78.3ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 55.9% | lr=4.6e-05
+| Epoch 192, time=201.3ms/ 77.6ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% |
+| Epoch 193, time=201.0ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 55.9% |
+| Epoch 194, time=201.0ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% |
+| Epoch 195, time=201.0ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% | lr=1.5e-05
+| Epoch 196, time=201.0ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% |
+| Epoch 197, time=201.0ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% |
+| Epoch 198, time=200.9ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% |
+| Epoch 199, time=200.5ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% | lr=5.1e-06
+| Epoch 200, time=200.5ms/ 77.2ms | Train: loss=0.050, acc=100.0% | Valid: loss=2.416, acc= 56.0% |
+----------------------------------------------------------------------------------------------------
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  0 - cifar100-all-0 : loss=3.343, acc= 60.5% <<<
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  1 - cifar100-aug-1 : loss=1.522, acc= 59.5% <<<
+num_test: 10000 num_mask: 2
+hits: 6151
+number of test data: 10000
+Mix Precision: 61.51 %
+Save at ../res/20211131815_cifar_hat-res50_0.txt
+****************************************************************************************************
+Task  2 (cifar100-aug-2)
+****************************************************************************************************
+Train
+[52, 65, 81, 102, 128, 160]
+202111318153_Original_SGD_momentum_lr0.1_factor3_task2
+epochs:200
+| Epoch   1, time=204.5ms/ 77.2ms | Train: loss=3.546, acc= 14.6% | Valid: loss=3.557, acc= 14.2% | *
+| Epoch   2, time=203.5ms/ 77.2ms | Train: loss=3.085, acc= 24.0% | Valid: loss=3.189, acc= 21.8% | *
+| Epoch   3, time=203.5ms/ 77.2ms | Train: loss=2.827, acc= 28.8% | Valid: loss=2.952, acc= 26.5% | *
+| Epoch   4, time=203.4ms/ 77.2ms | Train: loss=2.648, acc= 32.1% | Valid: loss=2.830, acc= 28.4% | *
+| Epoch   5, time=203.6ms/ 77.7ms | Train: loss=2.548, acc= 34.7% | Valid: loss=2.766, acc= 29.7% | *
+| Epoch   6, time=204.3ms/ 77.2ms | Train: loss=2.423, acc= 36.8% | Valid: loss=2.677, acc= 31.5% | *
+| Epoch   7, time=203.5ms/ 77.2ms | Train: loss=2.330, acc= 39.1% | Valid: loss=2.636, acc= 33.0% | *
+| Epoch   8, time=203.4ms/ 77.2ms | Train: loss=2.270, acc= 40.8% | Valid: loss=2.588, acc= 34.4% | *
+| Epoch   9, time=203.5ms/ 77.2ms | Train: loss=2.158, acc= 43.1% | Valid: loss=2.486, acc= 36.3% | *
+| Epoch  10, time=203.5ms/ 77.2ms | Train: loss=2.206, acc= 42.1% | Valid: loss=2.536, acc= 34.8% |
+| Epoch  11, time=203.4ms/ 77.2ms | Train: loss=2.158, acc= 42.4% | Valid: loss=2.543, acc= 34.2% | *
+| Epoch  12, time=203.4ms/ 77.3ms | Train: loss=2.082, acc= 44.4% | Valid: loss=2.455, acc= 36.7% | *
+| Epoch  13, time=203.4ms/ 77.2ms | Train: loss=2.044, acc= 45.9% | Valid: loss=2.446, acc= 36.8% | *
+| Epoch  14, time=205.9ms/ 77.2ms | Train: loss=2.002, acc= 46.3% | Valid: loss=2.418, acc= 36.8% | *
+| Epoch  15, time=203.4ms/ 77.2ms | Train: loss=2.008, acc= 46.2% | Valid: loss=2.442, acc= 37.4% |
+| Epoch  16, time=203.4ms/ 77.2ms | Train: loss=1.918, acc= 48.3% | Valid: loss=2.374, acc= 38.7% | *
+| Epoch  17, time=205.1ms/ 77.2ms | Train: loss=1.974, acc= 47.0% | Valid: loss=2.419, acc= 37.2% |
+| Epoch  18, time=203.5ms/ 77.2ms | Train: loss=1.921, acc= 48.2% | Valid: loss=2.361, acc= 39.1% |
+| Epoch  19, time=203.5ms/ 77.3ms | Train: loss=1.916, acc= 48.5% | Valid: loss=2.424, acc= 37.7% | *
+| Epoch  20, time=203.5ms/ 77.2ms | Train: loss=1.949, acc= 47.6% | Valid: loss=2.429, acc= 37.7% |
+| Epoch  21, time=203.8ms/ 77.2ms | Train: loss=1.917, acc= 48.9% | Valid: loss=2.369, acc= 38.5% |
+| Epoch  22, time=203.5ms/ 77.2ms | Train: loss=2.029, acc= 45.6% | Valid: loss=2.429, acc= 37.5% |
+| Epoch  23, time=204.6ms/ 77.2ms | Train: loss=1.991, acc= 47.0% | Valid: loss=2.412, acc= 37.6% | lr=3.3e-02
+| Epoch  24, time=200.7ms/ 77.7ms | Train: loss=1.444, acc= 60.6% | Valid: loss=2.044, acc= 45.7% | *
+| Epoch  25, time=201.6ms/ 77.7ms | Train: loss=1.323, acc= 63.6% | Valid: loss=2.016, acc= 47.1% | *
+| Epoch  26, time=201.2ms/ 77.7ms | Train: loss=1.244, acc= 65.7% | Valid: loss=2.004, acc= 47.5% | *
+| Epoch  27, time=201.1ms/ 77.7ms | Train: loss=1.183, acc= 67.4% | Valid: loss=2.003, acc= 48.0% | *
+| Epoch  28, time=201.0ms/ 77.7ms | Train: loss=1.131, acc= 68.8% | Valid: loss=1.994, acc= 48.2% | *
+| Epoch  29, time=201.0ms/ 77.7ms | Train: loss=1.087, acc= 70.2% | Valid: loss=1.999, acc= 48.4% | *
+| Epoch  30, time=201.1ms/ 77.8ms | Train: loss=1.043, acc= 71.6% | Valid: loss=2.003, acc= 48.3% | *
+| Epoch  31, time=201.0ms/ 77.7ms | Train: loss=0.999, acc= 72.8% | Valid: loss=2.009, acc= 48.9% | *
+| Epoch  32, time=201.1ms/ 77.7ms | Train: loss=0.961, acc= 74.0% | Valid: loss=2.027, acc= 48.4% | *
+| Epoch  33, time=201.1ms/ 77.7ms | Train: loss=0.922, acc= 75.1% | Valid: loss=2.032, acc= 48.4% | *
+| Epoch  34, time=201.2ms/ 77.7ms | Train: loss=0.884, acc= 76.3% | Valid: loss=2.049, acc= 48.5% | *
+| Epoch  35, time=201.2ms/ 77.7ms | Train: loss=0.844, acc= 77.7% | Valid: loss=2.060, acc= 48.2% | *
+| Epoch  36, time=200.9ms/ 77.2ms | Train: loss=0.806, acc= 79.0% | Valid: loss=2.085, acc= 47.7% | *
+| Epoch  37, time=200.5ms/ 77.5ms | Train: loss=0.768, acc= 80.1% | Valid: loss=2.108, acc= 47.6% | *
+| Epoch  38, time=200.9ms/ 77.2ms | Train: loss=0.728, acc= 81.6% | Valid: loss=2.128, acc= 47.6% | *
+| Epoch  39, time=200.6ms/ 77.2ms | Train: loss=0.690, acc= 82.7% | Valid: loss=2.148, acc= 46.9% | *
+| Epoch  40, time=200.8ms/ 77.2ms | Train: loss=0.655, acc= 83.8% | Valid: loss=2.169, acc= 47.7% | *
+| Epoch  41, time=200.5ms/ 77.2ms | Train: loss=0.619, acc= 84.9% | Valid: loss=2.201, acc= 46.9% | *
+| Epoch  42, time=200.5ms/ 77.2ms | Train: loss=0.582, acc= 86.3% | Valid: loss=2.228, acc= 46.6% | *
+| Epoch  43, time=200.5ms/ 77.2ms | Train: loss=0.545, acc= 87.7% | Valid: loss=2.264, acc= 46.5% | *
+| Epoch  44, time=200.5ms/ 77.2ms | Train: loss=0.511, acc= 88.8% | Valid: loss=2.285, acc= 46.6% | *
+| Epoch  45, time=200.5ms/ 77.2ms | Train: loss=0.477, acc= 90.0% | Valid: loss=2.321, acc= 46.3% | *
+| Epoch  46, time=200.5ms/ 77.2ms | Train: loss=0.447, acc= 91.0% | Valid: loss=2.347, acc= 45.9% | *
+| Epoch  47, time=200.5ms/ 77.2ms | Train: loss=0.417, acc= 91.9% | Valid: loss=2.391, acc= 45.5% | *
+| Epoch  48, time=200.5ms/ 77.2ms | Train: loss=0.388, acc= 93.0% | Valid: loss=2.421, acc= 45.7% | *
+| Epoch  49, time=200.5ms/ 77.2ms | Train: loss=0.362, acc= 93.7% | Valid: loss=2.480, acc= 45.1% | *
+| Epoch  50, time=200.5ms/ 77.2ms | Train: loss=0.334, acc= 94.7% | Valid: loss=2.504, acc= 45.1% | *
+| Epoch  51, time=200.5ms/ 77.2ms | Train: loss=0.309, acc= 95.5% | Valid: loss=2.541, acc= 45.1% | *
+| Epoch  52, time=200.5ms/ 77.2ms | Train: loss=0.288, acc= 96.1% | Valid: loss=2.575, acc= 44.4% | *
+| Epoch  53, time=200.9ms/ 77.7ms | Train: loss=0.267, acc= 96.7% | Valid: loss=2.596, acc= 44.5% | *
+| Epoch  54, time=201.1ms/ 77.6ms | Train: loss=0.249, acc= 97.2% | Valid: loss=2.642, acc= 44.2% | *
+| Epoch  55, time=201.3ms/ 78.3ms | Train: loss=0.232, acc= 97.7% | Valid: loss=2.675, acc= 43.2% | *
+| Epoch  56, time=200.6ms/ 77.2ms | Train: loss=0.216, acc= 98.1% | Valid: loss=2.699, acc= 44.4% | *
+| Epoch  57, time=200.7ms/ 77.2ms | Train: loss=0.203, acc= 98.3% | Valid: loss=2.728, acc= 43.4% | *
+| Epoch  58, time=200.5ms/ 77.2ms | Train: loss=0.186, acc= 98.7% | Valid: loss=2.778, acc= 43.8% | *
+| Epoch  59, time=200.6ms/ 78.3ms | Train: loss=0.175, acc= 99.0% | Valid: loss=2.810, acc= 43.5% | *
+| Epoch  60, time=200.9ms/ 77.2ms | Train: loss=0.164, acc= 99.2% | Valid: loss=2.847, acc= 43.7% | *
+| Epoch  61, time=200.5ms/ 77.6ms | Train: loss=0.154, acc= 99.3% | Valid: loss=2.866, acc= 43.5% | *
+| Epoch  62, time=201.1ms/ 77.7ms | Train: loss=0.146, acc= 99.4% | Valid: loss=2.907, acc= 43.2% | *
+| Epoch  63, time=201.2ms/ 77.7ms | Train: loss=0.139, acc= 99.5% | Valid: loss=2.940, acc= 43.0% | *
+| Epoch  64, time=201.1ms/ 77.7ms | Train: loss=0.131, acc= 99.6% | Valid: loss=2.968, acc= 42.9% | *
+| Epoch  65, time=201.2ms/ 77.7ms | Train: loss=0.124, acc= 99.7% | Valid: loss=2.997, acc= 42.8% | *
+| Epoch  66, time=201.3ms/ 77.7ms | Train: loss=0.117, acc= 99.7% | Valid: loss=3.026, acc= 42.5% | *
+| Epoch  67, time=201.2ms/ 77.7ms | Train: loss=0.114, acc= 99.7% | Valid: loss=3.022, acc= 43.4% | *
+| Epoch  68, time=201.1ms/ 77.7ms | Train: loss=0.109, acc= 99.8% | Valid: loss=3.071, acc= 42.6% | *
+| Epoch  69, time=200.8ms/ 77.2ms | Train: loss=0.105, acc= 99.8% | Valid: loss=3.083, acc= 42.5% | *
+| Epoch  70, time=200.5ms/ 77.2ms | Train: loss=0.101, acc= 99.8% | Valid: loss=3.094, acc= 42.4% | *
+| Epoch  71, time=200.5ms/ 77.2ms | Train: loss=0.098, acc= 99.8% | Valid: loss=3.131, acc= 42.5% | *
+| Epoch  72, time=200.5ms/ 77.2ms | Train: loss=0.095, acc= 99.8% | Valid: loss=3.145, acc= 42.2% | *
+| Epoch  73, time=200.5ms/ 77.2ms | Train: loss=0.091, acc= 99.9% | Valid: loss=3.171, acc= 42.6% | *
+| Epoch  74, time=201.5ms/ 77.2ms | Train: loss=0.091, acc= 99.8% | Valid: loss=3.159, acc= 42.9% | *
+| Epoch  75, time=200.5ms/ 77.2ms | Train: loss=0.087, acc= 99.9% | Valid: loss=3.210, acc= 41.8% | *
+| Epoch  76, time=200.6ms/ 77.2ms | Train: loss=0.084, acc= 99.9% | Valid: loss=3.211, acc= 42.1% | *
+| Epoch  77, time=200.7ms/ 77.2ms | Train: loss=0.083, acc= 99.9% | Valid: loss=3.228, acc= 42.0% | *
+| Epoch  78, time=200.6ms/ 77.3ms | Train: loss=0.081, acc= 99.9% | Valid: loss=3.254, acc= 42.4% | *
+| Epoch  79, time=200.6ms/ 77.3ms | Train: loss=0.079, acc= 99.9% | Valid: loss=3.263, acc= 42.2% | *
+| Epoch  80, time=200.5ms/ 77.2ms | Train: loss=0.077, acc= 99.9% | Valid: loss=3.287, acc= 41.9% | *
+| Epoch  81, time=200.6ms/ 77.3ms | Train: loss=0.075, acc=100.0% | Valid: loss=3.299, acc= 42.1% | *
+| Epoch  82, time=200.5ms/ 77.2ms | Train: loss=0.074, acc= 99.9% | Valid: loss=3.320, acc= 42.0% | *
+| Epoch  83, time=200.6ms/ 77.3ms | Train: loss=0.073, acc= 99.9% | Valid: loss=3.330, acc= 42.1% | *
+| Epoch  84, time=200.5ms/ 77.7ms | Train: loss=0.073, acc= 99.9% | Valid: loss=3.350, acc= 41.7% | *
+| Epoch  85, time=201.2ms/ 77.7ms | Train: loss=0.072, acc= 99.9% | Valid: loss=3.371, acc= 41.9% | *
+| Epoch  86, time=201.2ms/ 77.7ms | Train: loss=0.071, acc=100.0% | Valid: loss=3.384, acc= 41.7% | *
+| Epoch  87, time=201.3ms/ 77.7ms | Train: loss=0.069, acc= 99.9% | Valid: loss=3.375, acc= 41.9% | *
+| Epoch  88, time=201.1ms/ 77.7ms | Train: loss=0.071, acc= 99.9% | Valid: loss=3.402, acc= 41.7% |
+| Epoch  89, time=201.3ms/ 77.7ms | Train: loss=0.068, acc=100.0% | Valid: loss=3.397, acc= 41.4% | *
+| Epoch  90, time=201.2ms/ 77.7ms | Train: loss=0.067, acc=100.0% | Valid: loss=3.416, acc= 41.8% | *
+| Epoch  91, time=200.7ms/ 77.2ms | Train: loss=0.066, acc=100.0% | Valid: loss=3.442, acc= 41.3% | *
+| Epoch  92, time=200.5ms/ 77.2ms | Train: loss=0.066, acc=100.0% | Valid: loss=3.447, acc= 41.7% | *
+| Epoch  93, time=200.5ms/ 77.2ms | Train: loss=0.064, acc=100.0% | Valid: loss=3.453, acc= 41.5% | *
+| Epoch  94, time=200.4ms/ 77.2ms | Train: loss=0.064, acc=100.0% | Valid: loss=3.469, acc= 41.5% | *
+| Epoch  95, time=200.5ms/ 77.2ms | Train: loss=0.063, acc=100.0% | Valid: loss=3.462, acc= 41.7% | *
+| Epoch  96, time=200.5ms/ 77.2ms | Train: loss=0.063, acc=100.0% | Valid: loss=3.480, acc= 41.7% | *
+| Epoch  97, time=200.5ms/ 77.2ms | Train: loss=0.063, acc=100.0% | Valid: loss=3.492, acc= 42.0% |
+| Epoch  98, time=200.5ms/ 77.2ms | Train: loss=0.063, acc=100.0% | Valid: loss=3.500, acc= 41.7% |
+| Epoch  99, time=200.5ms/ 77.7ms | Train: loss=0.062, acc=100.0% | Valid: loss=3.501, acc= 41.8% | *
+| Epoch 100, time=201.2ms/ 77.7ms | Train: loss=0.061, acc=100.0% | Valid: loss=3.507, acc= 41.7% | *
+| Epoch 101, time=201.2ms/ 77.7ms | Train: loss=0.060, acc=100.0% | Valid: loss=3.515, acc= 41.6% | *
+| Epoch 102, time=201.2ms/ 78.0ms | Train: loss=0.060, acc=100.0% | Valid: loss=3.533, acc= 41.5% | *
+| Epoch 103, time=202.3ms/ 78.3ms | Train: loss=0.060, acc=100.0% | Valid: loss=3.534, acc= 41.5% | *
+| Epoch 104, time=200.7ms/ 77.3ms | Train: loss=0.059, acc=100.0% | Valid: loss=3.540, acc= 41.5% | *
+| Epoch 105, time=201.2ms/ 77.8ms | Train: loss=0.059, acc=100.0% | Valid: loss=3.560, acc= 41.3% | *
+| Epoch 106, time=201.1ms/ 77.7ms | Train: loss=0.059, acc=100.0% | Valid: loss=3.563, acc= 41.5% | *
+| Epoch 107, time=201.1ms/ 77.2ms | Train: loss=0.058, acc=100.0% | Valid: loss=3.563, acc= 41.5% | *
+| Epoch 108, time=200.5ms/ 77.5ms | Train: loss=0.058, acc=100.0% | Valid: loss=3.587, acc= 41.2% | *
+| Epoch 109, time=201.1ms/ 77.7ms | Train: loss=0.057, acc=100.0% | Valid: loss=3.583, acc= 41.8% | *
+| Epoch 110, time=201.1ms/ 77.7ms | Train: loss=0.057, acc=100.0% | Valid: loss=3.611, acc= 41.4% | *
+| Epoch 111, time=201.1ms/ 77.7ms | Train: loss=0.057, acc=100.0% | Valid: loss=3.601, acc= 41.8% |
+| Epoch 112, time=201.1ms/ 77.7ms | Train: loss=0.057, acc=100.0% | Valid: loss=3.607, acc= 41.7% | *
+| Epoch 113, time=201.2ms/ 77.7ms | Train: loss=0.057, acc=100.0% | Valid: loss=3.634, acc= 41.3% |
+| Epoch 114, time=201.1ms/ 77.7ms | Train: loss=0.056, acc=100.0% | Valid: loss=3.633, acc= 41.5% | *
+| Epoch 115, time=201.1ms/ 77.7ms | Train: loss=0.056, acc=100.0% | Valid: loss=3.642, acc= 41.3% | *
+| Epoch 116, time=201.2ms/ 77.7ms | Train: loss=0.055, acc=100.0% | Valid: loss=3.639, acc= 41.5% | *
+| Epoch 117, time=201.2ms/ 77.7ms | Train: loss=0.055, acc=100.0% | Valid: loss=3.651, acc= 41.4% | *
+| Epoch 118, time=201.1ms/ 77.7ms | Train: loss=0.055, acc=100.0% | Valid: loss=3.666, acc= 41.2% |
+| Epoch 119, time=201.2ms/ 77.7ms | Train: loss=0.055, acc=100.0% | Valid: loss=3.663, acc= 41.6% | *
+| Epoch 120, time=201.1ms/ 77.7ms | Train: loss=0.055, acc=100.0% | Valid: loss=3.662, acc= 41.6% |
+| Epoch 121, time=201.1ms/ 77.3ms | Train: loss=0.054, acc=100.0% | Valid: loss=3.668, acc= 41.3% | *
+| Epoch 122, time=200.5ms/ 77.7ms | Train: loss=0.054, acc=100.0% | Valid: loss=3.676, acc= 41.0% | *
+| Epoch 123, time=201.3ms/ 77.7ms | Train: loss=0.054, acc=100.0% | Valid: loss=3.671, acc= 41.5% | *
+| Epoch 124, time=201.1ms/ 77.7ms | Train: loss=0.054, acc=100.0% | Valid: loss=3.687, acc= 41.0% |
+| Epoch 125, time=201.1ms/ 77.7ms | Train: loss=0.054, acc=100.0% | Valid: loss=3.694, acc= 41.1% |
+| Epoch 126, time=201.0ms/ 77.7ms | Train: loss=0.053, acc=100.0% | Valid: loss=3.705, acc= 41.4% | *
+| Epoch 127, time=201.1ms/ 77.7ms | Train: loss=0.053, acc=100.0% | Valid: loss=3.704, acc= 41.1% |
+| Epoch 128, time=201.0ms/ 77.6ms | Train: loss=0.053, acc=100.0% | Valid: loss=3.707, acc= 41.2% | *
+| Epoch 129, time=201.2ms/ 77.2ms | Train: loss=0.053, acc=100.0% | Valid: loss=3.714, acc= 41.4% |
+| Epoch 130, time=200.5ms/ 77.2ms | Train: loss=0.053, acc=100.0% | Valid: loss=3.719, acc= 41.2% | *
+| Epoch 131, time=201.1ms/ 77.7ms | Train: loss=0.053, acc=100.0% | Valid: loss=3.742, acc= 41.5% | *
+| Epoch 132, time=201.2ms/ 77.7ms | Train: loss=0.053, acc=100.0% | Valid: loss=3.739, acc= 40.7% |
+| Epoch 133, time=200.9ms/ 77.7ms | Train: loss=0.053, acc=100.0% | Valid: loss=3.736, acc= 40.9% |
+| Epoch 134, time=201.2ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=3.742, acc= 41.0% | *
+| Epoch 135, time=201.2ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=3.750, acc= 41.1% |
+| Epoch 136, time=201.2ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=3.751, acc= 41.1% |
+| Epoch 137, time=201.2ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=3.743, acc= 41.2% |
+| Epoch 138, time=201.1ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=3.752, acc= 41.4% | *
+| Epoch 139, time=201.2ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=3.763, acc= 41.2% |
+| Epoch 140, time=201.2ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=3.752, acc= 41.2% |
+| Epoch 141, time=201.2ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=3.765, acc= 41.4% | *
+| Epoch 142, time=201.1ms/ 77.7ms | Train: loss=0.051, acc=100.0% | Valid: loss=3.779, acc= 41.4% | *
+| Epoch 143, time=201.2ms/ 77.7ms | Train: loss=0.052, acc=100.0% | Valid: loss=3.783, acc= 41.0% |
+| Epoch 144, time=201.1ms/ 77.7ms | Train: loss=0.051, acc=100.0% | Valid: loss=3.771, acc= 41.2% |
+| Epoch 145, time=201.6ms/ 77.7ms | Train: loss=0.051, acc=100.0% | Valid: loss=3.777, acc= 41.2% |
+| Epoch 146, time=201.2ms/ 77.8ms | Train: loss=0.051, acc=100.0% | Valid: loss=3.784, acc= 41.4% | *
+| Epoch 147, time=201.2ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=3.792, acc= 41.4% | *
+| Epoch 148, time=201.1ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=3.787, acc= 41.0% | *
+| Epoch 149, time=201.2ms/ 77.7ms | Train: loss=0.051, acc=100.0% | Valid: loss=3.788, acc= 41.3% |
+| Epoch 150, time=201.1ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=3.790, acc= 41.4% | *
+| Epoch 151, time=201.2ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=3.806, acc= 41.4% |
+| Epoch 152, time=201.2ms/ 77.7ms | Train: loss=0.050, acc=100.0% | Valid: loss=3.805, acc= 41.4% |
+| Epoch 153, time=201.2ms/ 77.8ms | Train: loss=0.050, acc=100.0% | Valid: loss=3.821, acc= 41.8% |
+| Epoch 154, time=200.8ms/ 77.8ms | Train: loss=0.050, acc=100.0% | Valid: loss=3.829, acc= 41.1% | lr=1.1e-02
+| Epoch 155, time=201.2ms/ 77.5ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.822, acc= 41.4% | *
+| Epoch 156, time=200.5ms/ 77.2ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.825, acc= 41.5% | *
+| Epoch 157, time=200.6ms/ 77.2ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.825, acc= 41.4% | *
+| Epoch 158, time=200.5ms/ 77.2ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.826, acc= 41.5% | *
+| Epoch 159, time=200.7ms/ 77.3ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.825, acc= 41.4% | *
+| Epoch 160, time=200.7ms/ 77.2ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.830, acc= 41.2% |
+| Epoch 161, time=200.7ms/ 77.4ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.829, acc= 41.2% | *
+| Epoch 162, time=201.2ms/ 77.7ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.829, acc= 41.2% | *
+| Epoch 163, time=201.2ms/ 77.7ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.829, acc= 40.9% | *
+| Epoch 164, time=201.1ms/ 77.3ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.835, acc= 41.4% | *
+| Epoch 165, time=200.6ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.833, acc= 41.4% | *
+| Epoch 166, time=200.5ms/ 77.2ms | Train: loss=0.049, acc=100.0% | Valid: loss=3.834, acc= 41.4% |
+| Epoch 167, time=200.5ms/ 77.3ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.839, acc= 41.0% | *
+| Epoch 168, time=200.5ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.836, acc= 41.0% | *
+| Epoch 169, time=200.6ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.839, acc= 41.0% |
+| Epoch 170, time=200.5ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.842, acc= 41.2% | *
+| Epoch 171, time=201.7ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.846, acc= 41.2% | *
+| Epoch 172, time=200.6ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.842, acc= 41.2% | *
+| Epoch 173, time=200.6ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.847, acc= 41.0% | *
+| Epoch 174, time=200.5ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.850, acc= 41.1% | *
+| Epoch 175, time=200.8ms/ 78.3ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.855, acc= 41.2% |
+| Epoch 176, time=201.2ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.853, acc= 40.9% | *
+| Epoch 177, time=200.6ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.861, acc= 41.1% | *
+| Epoch 178, time=201.3ms/ 78.3ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.858, acc= 41.2% | *
+| Epoch 179, time=200.7ms/ 78.3ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.853, acc= 41.2% | *
+| Epoch 180, time=201.1ms/ 77.3ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.855, acc= 41.1% |
+| Epoch 181, time=200.5ms/ 77.3ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.858, acc= 41.1% |
+| Epoch 182, time=201.3ms/ 77.3ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.859, acc= 41.3% | *
+| Epoch 183, time=200.5ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.861, acc= 41.2% | *
+| Epoch 184, time=200.5ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.865, acc= 41.0% |
+| Epoch 185, time=200.6ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.866, acc= 41.2% | *
+| Epoch 186, time=200.5ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.861, acc= 41.2% |
+| Epoch 187, time=200.5ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.862, acc= 41.3% | *
+| Epoch 188, time=200.5ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.863, acc= 41.4% |
+| Epoch 189, time=200.6ms/ 77.7ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.869, acc= 41.3% | *
+| Epoch 190, time=201.1ms/ 77.3ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.869, acc= 41.1% | *
+| Epoch 191, time=200.6ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.872, acc= 41.1% |
+| Epoch 192, time=200.6ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.868, acc= 41.2% | *
+| Epoch 193, time=200.9ms/ 77.2ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.880, acc= 41.2% | *
+| Epoch 194, time=200.8ms/ 77.7ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.877, acc= 40.9% | *
+| Epoch 195, time=201.2ms/ 77.7ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.875, acc= 41.2% |
+| Epoch 196, time=201.1ms/ 77.7ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.870, acc= 41.2% | *
+| Epoch 197, time=201.2ms/ 77.7ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.866, acc= 41.3% |
+| Epoch 198, time=201.1ms/ 77.7ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.872, acc= 41.3% |
+| Epoch 199, time=201.2ms/ 77.8ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.878, acc= 41.3% |
+| Epoch 200, time=201.2ms/ 77.7ms | Train: loss=0.048, acc=100.0% | Valid: loss=3.877, acc= 40.9% | *
+----------------------------------------------------------------------------------------------------
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  0 - cifar100-all-0 : loss=4.937, acc=  2.1% <<<
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  1 - cifar100-aug-1 : loss=4.700, acc=  1.4% <<<
+num_test: 10000 num_mask: 2
+hits: 143
+number of test data: 10000
+Mix Precision: 1.43 %
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  2 - cifar100-aug-2 : loss=1.959, acc= 49.2% <<<
+num_test: 10000 num_mask: 3
+hits: 4383
+number of test data: 10000
+Mix Precision: 43.830000000000005 %
+Save at ../res/20211131815_cifar_hat-res50_0.txt
+****************************************************************************************************
+Task  3 (cifar100-aug-3)
+****************************************************************************************************
+Train
+[52, 65, 81, 102, 128, 160]
+202111318153_Original_SGD_momentum_lr0.1_factor3_task3
+epochs:200
+| Epoch   1, time=204.7ms/ 77.7ms | Train: loss=2.855, acc= 27.8% | Valid: loss=2.935, acc= 25.6% | *
+| Epoch   2, time=204.5ms/ 77.7ms | Train: loss=2.080, acc= 44.1% | Valid: loss=2.329, acc= 38.7% | *
+| Epoch   3, time=204.5ms/ 77.7ms | Train: loss=1.967, acc= 47.4% | Valid: loss=2.290, acc= 41.3% | *
+| Epoch   4, time=204.5ms/ 77.8ms | Train: loss=1.954, acc= 47.8% | Valid: loss=2.228, acc= 41.4% | *
+| Epoch   5, time=204.7ms/ 77.7ms | Train: loss=2.036, acc= 45.3% | Valid: loss=2.311, acc= 39.6% |
+| Epoch   6, time=204.5ms/ 77.7ms | Train: loss=2.205, acc= 42.1% | Valid: loss=2.384, acc= 37.7% |
+| Epoch   7, time=204.7ms/ 77.7ms | Train: loss=2.043, acc= 45.1% | Valid: loss=2.310, acc= 40.1% |
+| Epoch   8, time=204.3ms/ 77.3ms | Train: loss=1.996, acc= 46.6% | Valid: loss=2.264, acc= 41.4% | lr=3.3e-02
+| Epoch   9, time=200.5ms/ 77.4ms | Train: loss=1.491, acc= 58.9% | Valid: loss=1.860, acc= 50.1% | *
+| Epoch  10, time=201.2ms/ 77.7ms | Train: loss=1.403, acc= 61.2% | Valid: loss=1.804, acc= 51.2% | *
+| Epoch  11, time=201.2ms/ 77.7ms | Train: loss=1.343, acc= 62.8% | Valid: loss=1.786, acc= 51.5% | *
+| Epoch  12, time=201.2ms/ 77.8ms | Train: loss=1.297, acc= 64.0% | Valid: loss=1.773, acc= 51.8% | *
+| Epoch  13, time=201.2ms/ 77.7ms | Train: loss=1.256, acc= 65.0% | Valid: loss=1.757, acc= 52.5% | *
+| Epoch  14, time=201.2ms/ 77.7ms | Train: loss=1.219, acc= 66.0% | Valid: loss=1.751, acc= 52.4% | *
+| Epoch  15, time=201.2ms/ 77.7ms | Train: loss=1.185, acc= 67.1% | Valid: loss=1.744, acc= 53.4% | *
+| Epoch  16, time=201.1ms/ 77.7ms | Train: loss=1.151, acc= 68.1% | Valid: loss=1.739, acc= 53.0% | *
+| Epoch  17, time=201.1ms/ 77.7ms | Train: loss=1.121, acc= 68.8% | Valid: loss=1.739, acc= 53.6% | *
+| Epoch  18, time=201.2ms/ 77.7ms | Train: loss=1.087, acc= 69.8% | Valid: loss=1.734, acc= 53.5% | *
+| Epoch  19, time=201.1ms/ 77.7ms | Train: loss=1.053, acc= 70.6% | Valid: loss=1.737, acc= 54.0% | *
+| Epoch  20, time=201.2ms/ 77.7ms | Train: loss=1.022, acc= 71.6% | Valid: loss=1.746, acc= 53.7% | *
+| Epoch  21, time=201.1ms/ 77.7ms | Train: loss=0.990, acc= 72.5% | Valid: loss=1.750, acc= 53.7% | *
+| Epoch  22, time=201.2ms/ 77.8ms | Train: loss=0.961, acc= 73.4% | Valid: loss=1.757, acc= 53.3% | *
+| Epoch  23, time=201.2ms/ 77.7ms | Train: loss=0.925, acc= 74.5% | Valid: loss=1.753, acc= 53.6% | *
+| Epoch  24, time=201.1ms/ 77.7ms | Train: loss=0.893, acc= 75.4% | Valid: loss=1.761, acc= 53.2% | *
+| Epoch  25, time=201.2ms/ 77.7ms | Train: loss=0.860, acc= 76.6% | Valid: loss=1.781, acc= 53.2% | *
+| Epoch  26, time=201.1ms/ 77.7ms | Train: loss=0.828, acc= 77.7% | Valid: loss=1.782, acc= 53.6% | *
+| Epoch  27, time=201.2ms/ 77.7ms | Train: loss=0.796, acc= 78.8% | Valid: loss=1.791, acc= 53.8% | *
+| Epoch  28, time=201.2ms/ 77.8ms | Train: loss=0.764, acc= 79.8% | Valid: loss=1.812, acc= 53.3% | *
+| Epoch  29, time=201.2ms/ 77.7ms | Train: loss=0.728, acc= 80.9% | Valid: loss=1.819, acc= 53.8% | *
+| Epoch  30, time=201.1ms/ 77.7ms | Train: loss=0.695, acc= 81.9% | Valid: loss=1.836, acc= 53.1% | *
+| Epoch  31, time=201.1ms/ 77.8ms | Train: loss=0.663, acc= 82.9% | Valid: loss=1.854, acc= 53.3% | *
+| Epoch  32, time=201.2ms/ 77.7ms | Train: loss=0.635, acc= 83.9% | Valid: loss=1.859, acc= 52.9% | *
+| Epoch  33, time=201.1ms/ 77.7ms | Train: loss=0.600, acc= 85.1% | Valid: loss=1.873, acc= 52.9% | *
+| Epoch  34, time=201.2ms/ 77.7ms | Train: loss=0.574, acc= 85.9% | Valid: loss=1.905, acc= 52.4% | *
+| Epoch  35, time=201.2ms/ 77.7ms | Train: loss=0.541, acc= 87.0% | Valid: loss=1.905, acc= 53.3% | *
+| Epoch  36, time=201.1ms/ 77.3ms | Train: loss=0.514, acc= 87.9% | Valid: loss=1.947, acc= 52.4% | *
+| Epoch  37, time=200.6ms/ 77.3ms | Train: loss=0.486, acc= 88.7% | Valid: loss=1.961, acc= 52.1% | *
+| Epoch  38, time=200.6ms/ 77.3ms | Train: loss=0.461, acc= 89.7% | Valid: loss=1.986, acc= 52.2% | *
+| Epoch  39, time=200.6ms/ 77.3ms | Train: loss=0.432, acc= 90.7% | Valid: loss=2.013, acc= 51.6% | *
+| Epoch  40, time=200.6ms/ 77.9ms | Train: loss=0.409, acc= 91.5% | Valid: loss=2.043, acc= 51.6% | *
+| Epoch  41, time=201.0ms/ 77.3ms | Train: loss=0.389, acc= 92.0% | Valid: loss=2.037, acc= 52.1% | *
+| Epoch  42, time=200.6ms/ 77.3ms | Train: loss=0.368, acc= 92.7% | Valid: loss=2.088, acc= 51.7% | *
+| Epoch  43, time=200.5ms/ 77.3ms | Train: loss=0.349, acc= 93.3% | Valid: loss=2.100, acc= 51.4% | *
+| Epoch  44, time=200.6ms/ 77.3ms | Train: loss=0.328, acc= 94.0% | Valid: loss=2.111, acc= 51.4% | *
+| Epoch  45, time=200.7ms/ 77.3ms | Train: loss=0.308, acc= 94.6% | Valid: loss=2.145, acc= 51.1% | *
+| Epoch  46, time=200.6ms/ 77.3ms | Train: loss=0.288, acc= 95.2% | Valid: loss=2.159, acc= 51.4% | *
+| Epoch  47, time=200.5ms/ 77.3ms | Train: loss=0.277, acc= 95.6% | Valid: loss=2.169, acc= 51.0% | *
+| Epoch  48, time=200.6ms/ 77.3ms | Train: loss=0.254, acc= 96.3% | Valid: loss=2.212, acc= 50.8% | *
+| Epoch  49, time=200.6ms/ 77.3ms | Train: loss=0.249, acc= 96.4% | Valid: loss=2.229, acc= 50.4% | *
+| Epoch  50, time=200.6ms/ 77.3ms | Train: loss=0.237, acc= 96.7% | Valid: loss=2.234, acc= 50.8% | *
+| Epoch  51, time=201.1ms/ 78.4ms | Train: loss=0.231, acc= 96.7% | Valid: loss=2.269, acc= 50.3% | *
+| Epoch  52, time=201.2ms/ 77.3ms | Train: loss=0.214, acc= 97.3% | Valid: loss=2.303, acc= 49.9% | *
+| Epoch  53, time=201.1ms/ 77.8ms | Train: loss=0.205, acc= 97.4% | Valid: loss=2.309, acc= 50.9% | *
+| Epoch  54, time=201.2ms/ 77.7ms | Train: loss=0.193, acc= 97.7% | Valid: loss=2.313, acc= 50.6% | *
+| Epoch  55, time=201.8ms/ 78.4ms | Train: loss=0.186, acc= 97.9% | Valid: loss=2.347, acc= 50.2% | *
+| Epoch  56, time=202.6ms/ 78.3ms | Train: loss=0.175, acc= 98.1% | Valid: loss=2.346, acc= 50.3% | *
+| Epoch  57, time=200.6ms/ 77.3ms | Train: loss=0.164, acc= 98.4% | Valid: loss=2.378, acc= 50.0% | *
+| Epoch  58, time=200.5ms/ 77.3ms | Train: loss=0.161, acc= 98.3% | Valid: loss=2.404, acc= 49.1% | *
+| Epoch  59, time=200.5ms/ 77.3ms | Train: loss=0.157, acc= 98.4% | Valid: loss=2.400, acc= 49.7% | *
+| Epoch  60, time=200.6ms/ 77.3ms | Train: loss=0.153, acc= 98.5% | Valid: loss=2.443, acc= 49.5% | *
+| Epoch  61, time=200.6ms/ 77.3ms | Train: loss=0.145, acc= 98.6% | Valid: loss=2.447, acc= 49.6% | *
+| Epoch  62, time=200.6ms/ 77.3ms | Train: loss=0.138, acc= 98.8% | Valid: loss=2.452, acc= 50.1% | *
+| Epoch  63, time=200.6ms/ 77.3ms | Train: loss=0.137, acc= 98.7% | Valid: loss=2.458, acc= 49.8% | *
+| Epoch  64, time=200.9ms/ 77.2ms | Train: loss=0.132, acc= 98.9% | Valid: loss=2.522, acc= 49.6% | *
+| Epoch  65, time=200.6ms/ 77.3ms | Train: loss=0.127, acc= 98.9% | Valid: loss=2.529, acc= 49.2% | *
+| Epoch  66, time=200.6ms/ 77.3ms | Train: loss=0.123, acc= 98.9% | Valid: loss=2.538, acc= 48.6% | *
+| Epoch  67, time=200.6ms/ 77.3ms | Train: loss=0.117, acc= 99.0% | Valid: loss=2.535, acc= 50.0% | *
+| Epoch  68, time=200.6ms/ 77.3ms | Train: loss=0.111, acc= 99.2% | Valid: loss=2.562, acc= 48.9% | *
+| Epoch  69, time=200.9ms/ 77.3ms | Train: loss=0.109, acc= 99.2% | Valid: loss=2.581, acc= 49.2% | *
+| Epoch  70, time=200.6ms/ 77.3ms | Train: loss=0.108, acc= 99.2% | Valid: loss=2.560, acc= 49.5% | *
+| Epoch  71, time=200.6ms/ 77.3ms | Train: loss=0.102, acc= 99.3% | Valid: loss=2.585, acc= 49.1% | *
+| Epoch  72, time=201.9ms/ 77.3ms | Train: loss=0.105, acc= 99.2% | Valid: loss=2.622, acc= 48.7% |
+| Epoch  73, time=200.7ms/ 78.3ms | Train: loss=0.101, acc= 99.3% | Valid: loss=2.606, acc= 49.5% | *
+| Epoch  74, time=201.0ms/ 77.8ms | Train: loss=0.099, acc= 99.3% | Valid: loss=2.616, acc= 48.6% | *
+| Epoch  75, time=201.1ms/ 77.8ms | Train: loss=0.094, acc= 99.4% | Valid: loss=2.658, acc= 48.5% | *
+| Epoch  76, time=201.2ms/ 77.7ms | Train: loss=0.090, acc= 99.4% | Valid: loss=2.639, acc= 48.7% | *
+| Epoch  77, time=201.1ms/ 77.7ms | Train: loss=0.094, acc= 99.4% | Valid: loss=2.643, acc= 49.1% |
+| Epoch  78, time=201.0ms/ 77.3ms | Train: loss=0.089, acc= 99.5% | Valid: loss=2.645, acc= 49.2% | *
+| Epoch  79, time=201.3ms/ 78.3ms | Train: loss=0.088, acc= 99.4% | Valid: loss=2.664, acc= 49.2% | *
+| Epoch  80, time=201.0ms/ 77.3ms | Train: loss=0.089, acc= 99.4% | Valid: loss=2.678, acc= 48.8% |
+| Epoch  81, time=200.6ms/ 77.2ms | Train: loss=0.086, acc= 99.5% | Valid: loss=2.680, acc= 48.8% | *
+| Epoch  82, time=200.6ms/ 77.3ms | Train: loss=0.086, acc= 99.4% | Valid: loss=2.717, acc= 48.4% | *
+| Epoch  83, time=200.6ms/ 77.3ms | Train: loss=0.085, acc= 99.5% | Valid: loss=2.703, acc= 49.3% | *
+| Epoch  84, time=200.6ms/ 77.3ms | Train: loss=0.087, acc= 99.4% | Valid: loss=2.717, acc= 48.6% |
+| Epoch  85, time=200.8ms/ 77.3ms | Train: loss=0.082, acc= 99.5% | Valid: loss=2.694, acc= 49.2% | *
+| Epoch  86, time=200.7ms/ 77.7ms | Train: loss=0.081, acc= 99.6% | Valid: loss=2.741, acc= 48.9% | *
+| Epoch  87, time=201.2ms/ 77.8ms | Train: loss=0.079, acc= 99.6% | Valid: loss=2.741, acc= 49.1% | *
+| Epoch  88, time=201.2ms/ 77.7ms | Train: loss=0.074, acc= 99.7% | Valid: loss=2.758, acc= 48.8% | *
+| Epoch  89, time=201.2ms/ 77.8ms | Train: loss=0.077, acc= 99.6% | Valid: loss=2.752, acc= 49.0% |
+| Epoch  90, time=201.2ms/ 77.7ms | Train: loss=0.073, acc= 99.7% | Valid: loss=2.756, acc= 48.5% | *
+| Epoch  91, time=201.2ms/ 77.7ms | Train: loss=0.074, acc= 99.6% | Valid: loss=2.778, acc= 48.5% |
+| Epoch  92, time=201.2ms/ 77.7ms | Train: loss=0.076, acc= 99.6% | Valid: loss=2.776, acc= 48.8% |
+| Epoch  93, time=201.2ms/ 77.7ms | Train: loss=0.073, acc= 99.6% | Valid: loss=2.801, acc= 48.6% | *
+| Epoch  94, time=201.2ms/ 77.8ms | Train: loss=0.075, acc= 99.5% | Valid: loss=2.782, acc= 48.9% |
+| Epoch  95, time=201.2ms/ 77.8ms | Train: loss=0.070, acc= 99.7% | Valid: loss=2.806, acc= 48.3% | *
+| Epoch  96, time=201.1ms/ 77.7ms | Train: loss=0.072, acc= 99.6% | Valid: loss=2.815, acc= 48.5% |
+| Epoch  97, time=201.2ms/ 77.8ms | Train: loss=0.069, acc= 99.6% | Valid: loss=2.829, acc= 48.6% | *
+| Epoch  98, time=201.1ms/ 77.7ms | Train: loss=0.077, acc= 99.5% | Valid: loss=2.858, acc= 48.5% |
+| Epoch  99, time=200.8ms/ 77.3ms | Train: loss=0.072, acc= 99.6% | Valid: loss=2.838, acc= 48.9% |
+| Epoch 100, time=200.6ms/ 77.3ms | Train: loss=0.069, acc= 99.6% | Valid: loss=2.842, acc= 48.7% | *
+| Epoch 101, time=200.6ms/ 78.0ms | Train: loss=0.066, acc= 99.7% | Valid: loss=2.840, acc= 49.1% | *
+| Epoch 102, time=200.8ms/ 77.8ms | Train: loss=0.067, acc= 99.6% | Valid: loss=2.841, acc= 48.3% |
+| Epoch 103, time=200.9ms/ 78.3ms | Train: loss=0.067, acc= 99.7% | Valid: loss=2.856, acc= 48.3% |
+| Epoch 104, time=200.9ms/ 78.4ms | Train: loss=0.065, acc= 99.7% | Valid: loss=2.866, acc= 48.4% | *
+| Epoch 105, time=201.6ms/ 77.3ms | Train: loss=0.067, acc= 99.7% | Valid: loss=2.883, acc= 48.6% |
+| Epoch 106, time=200.8ms/ 78.3ms | Train: loss=0.074, acc= 99.5% | Valid: loss=2.877, acc= 48.5% |
+| Epoch 107, time=200.6ms/ 77.3ms | Train: loss=0.070, acc= 99.6% | Valid: loss=2.878, acc= 48.6% |
+| Epoch 108, time=201.4ms/ 77.2ms | Train: loss=0.074, acc= 99.5% | Valid: loss=2.887, acc= 48.5% | lr=1.1e-02
+| Epoch 109, time=200.5ms/ 77.3ms | Train: loss=0.057, acc= 99.8% | Valid: loss=2.867, acc= 48.7% | *
+| Epoch 110, time=200.5ms/ 77.2ms | Train: loss=0.055, acc= 99.8% | Valid: loss=2.860, acc= 49.1% | *
+| Epoch 111, time=200.5ms/ 77.2ms | Train: loss=0.054, acc= 99.8% | Valid: loss=2.880, acc= 49.0% | *
+| Epoch 112, time=201.0ms/ 78.3ms | Train: loss=0.053, acc= 99.9% | Valid: loss=2.882, acc= 48.7% | *
+| Epoch 113, time=201.1ms/ 77.3ms | Train: loss=0.052, acc= 99.9% | Valid: loss=2.890, acc= 48.7% | *
+| Epoch 114, time=200.6ms/ 77.3ms | Train: loss=0.052, acc= 99.9% | Valid: loss=2.892, acc= 48.8% | *
+| Epoch 115, time=200.6ms/ 77.3ms | Train: loss=0.051, acc= 99.9% | Valid: loss=2.903, acc= 48.7% | *
+| Epoch 116, time=200.7ms/ 77.7ms | Train: loss=0.051, acc= 99.9% | Valid: loss=2.899, acc= 48.5% | *
+| Epoch 117, time=201.2ms/ 77.7ms | Train: loss=0.051, acc= 99.9% | Valid: loss=2.897, acc= 49.0% | *
+| Epoch 118, time=201.1ms/ 77.3ms | Train: loss=0.050, acc= 99.9% | Valid: loss=2.904, acc= 48.7% | *
+| Epoch 119, time=200.6ms/ 77.3ms | Train: loss=0.050, acc= 99.9% | Valid: loss=2.910, acc= 49.0% |
+| Epoch 120, time=200.5ms/ 77.3ms | Train: loss=0.050, acc= 99.9% | Valid: loss=2.907, acc= 48.9% | *
+| Epoch 121, time=200.6ms/ 77.3ms | Train: loss=0.049, acc= 99.9% | Valid: loss=2.904, acc= 48.9% | *
+| Epoch 122, time=200.8ms/ 78.4ms | Train: loss=0.049, acc= 99.9% | Valid: loss=2.910, acc= 48.9% | *
+| Epoch 123, time=201.3ms/ 77.7ms | Train: loss=0.049, acc= 99.9% | Valid: loss=2.918, acc= 48.5% | *
+| Epoch 124, time=201.2ms/ 77.7ms | Train: loss=0.049, acc= 99.9% | Valid: loss=2.916, acc= 49.0% |
+| Epoch 125, time=201.2ms/ 77.3ms | Train: loss=0.049, acc= 99.9% | Valid: loss=2.922, acc= 48.3% | *
+| Epoch 126, time=200.6ms/ 77.3ms | Train: loss=0.048, acc= 99.9% | Valid: loss=2.923, acc= 48.7% | *
+| Epoch 127, time=201.1ms/ 77.3ms | Train: loss=0.048, acc= 99.9% | Valid: loss=2.930, acc= 48.5% |
+| Epoch 128, time=200.6ms/ 77.3ms | Train: loss=0.048, acc= 99.9% | Valid: loss=2.934, acc= 48.4% |
+| Epoch 129, time=200.6ms/ 77.3ms | Train: loss=0.048, acc= 99.9% | Valid: loss=2.925, acc= 48.4% |
+| Epoch 130, time=200.6ms/ 77.3ms | Train: loss=0.048, acc= 99.9% | Valid: loss=2.925, acc= 48.8% | *
+| Epoch 131, time=200.5ms/ 77.3ms | Train: loss=0.047, acc= 99.9% | Valid: loss=2.927, acc= 48.9% | *
+| Epoch 132, time=200.9ms/ 78.4ms | Train: loss=0.047, acc= 99.9% | Valid: loss=2.933, acc= 48.7% | *
+| Epoch 133, time=200.6ms/ 77.3ms | Train: loss=0.047, acc= 99.9% | Valid: loss=2.938, acc= 48.7% | *
+| Epoch 134, time=200.7ms/ 77.2ms | Train: loss=0.047, acc= 99.9% | Valid: loss=2.940, acc= 48.7% | *
+| Epoch 135, time=200.5ms/ 77.2ms | Train: loss=0.047, acc= 99.9% | Valid: loss=2.942, acc= 48.6% | *
+| Epoch 136, time=200.5ms/ 77.3ms | Train: loss=0.047, acc= 99.9% | Valid: loss=2.943, acc= 48.6% |
+| Epoch 137, time=200.5ms/ 77.2ms | Train: loss=0.047, acc= 99.9% | Valid: loss=2.944, acc= 48.6% |
+| Epoch 138, time=200.9ms/ 77.3ms | Train: loss=0.047, acc= 99.9% | Valid: loss=2.946, acc= 48.5% | *
+| Epoch 139, time=200.6ms/ 78.3ms | Train: loss=0.047, acc= 99.9% | Valid: loss=2.939, acc= 48.8% | *
+| Epoch 140, time=200.6ms/ 77.2ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.952, acc= 48.1% | *
+| Epoch 141, time=200.5ms/ 77.3ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.951, acc= 48.3% | *
+| Epoch 142, time=200.6ms/ 77.3ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.949, acc= 48.5% | *
+| Epoch 143, time=201.2ms/ 77.8ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.952, acc= 48.4% |
+| Epoch 144, time=201.1ms/ 77.7ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.955, acc= 48.8% | *
+| Epoch 145, time=201.1ms/ 77.7ms | Train: loss=0.047, acc= 99.9% | Valid: loss=2.970, acc= 48.3% |
+| Epoch 146, time=201.1ms/ 77.3ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.953, acc= 48.7% |
+| Epoch 147, time=200.6ms/ 77.3ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.958, acc= 48.6% |
+| Epoch 148, time=201.7ms/ 78.3ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.955, acc= 48.5% | *
+| Epoch 149, time=202.6ms/ 78.3ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.969, acc= 48.5% |
+| Epoch 150, time=200.6ms/ 78.3ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.964, acc= 48.7% | *
+| Epoch 151, time=201.1ms/ 77.3ms | Train: loss=0.046, acc= 99.9% | Valid: loss=2.974, acc= 48.5% | *
+| Epoch 152, time=200.5ms/ 77.3ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.966, acc= 48.6% | *
+| Epoch 153, time=200.5ms/ 77.3ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.980, acc= 48.5% |
+| Epoch 154, time=200.6ms/ 77.4ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.985, acc= 48.4% | *
+| Epoch 155, time=201.1ms/ 77.7ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.980, acc= 48.8% |
+| Epoch 156, time=201.1ms/ 77.7ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.988, acc= 48.9% |
+| Epoch 157, time=201.2ms/ 77.7ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.976, acc= 48.7% | *
+| Epoch 158, time=201.2ms/ 77.7ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.978, acc= 48.7% |
+| Epoch 159, time=200.6ms/ 77.3ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.988, acc= 48.7% |
+| Epoch 160, time=201.9ms/ 78.3ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.983, acc= 48.5% | *
+| Epoch 161, time=200.9ms/ 77.2ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.979, acc= 48.7% | *
+| Epoch 162, time=201.1ms/ 77.7ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.981, acc= 48.7% | *
+| Epoch 163, time=201.1ms/ 77.7ms | Train: loss=0.045, acc= 99.9% | Valid: loss=2.984, acc= 48.5% | *
+| Epoch 164, time=201.2ms/ 77.8ms | Train: loss=0.044, acc= 99.9% | Valid: loss=2.990, acc= 48.7% | *
+| Epoch 165, time=201.2ms/ 77.8ms | Train: loss=0.044, acc= 99.9% | Valid: loss=2.994, acc= 48.5% |
+| Epoch 166, time=201.2ms/ 77.8ms | Train: loss=0.044, acc= 99.9% | Valid: loss=2.991, acc= 48.4% |
+| Epoch 167, time=201.1ms/ 77.7ms | Train: loss=0.044, acc= 99.9% | Valid: loss=2.996, acc= 47.9% | *
+| Epoch 168, time=201.2ms/ 77.7ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.000, acc= 48.4% |
+| Epoch 169, time=201.2ms/ 77.7ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.006, acc= 48.1% | *
+| Epoch 170, time=201.2ms/ 77.7ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.012, acc= 48.0% |
+| Epoch 171, time=201.2ms/ 77.7ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.001, acc= 48.1% |
+| Epoch 172, time=200.7ms/ 77.3ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.005, acc= 48.0% |
+| Epoch 173, time=200.5ms/ 77.3ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.017, acc= 48.3% | *
+| Epoch 174, time=200.7ms/ 77.3ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.014, acc= 48.2% |
+| Epoch 175, time=200.5ms/ 77.3ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.017, acc= 47.9% | *
+| Epoch 176, time=200.5ms/ 77.3ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.015, acc= 48.2% |
+| Epoch 177, time=200.7ms/ 77.7ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.010, acc= 48.5% |
+| Epoch 178, time=200.9ms/ 77.3ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.016, acc= 48.5% | *
+| Epoch 179, time=200.6ms/ 77.3ms | Train: loss=0.044, acc= 99.9% | Valid: loss=3.014, acc= 48.3% |
+| Epoch 180, time=201.2ms/ 77.7ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.012, acc= 48.7% | *
+| Epoch 181, time=201.2ms/ 77.7ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.015, acc= 48.9% | *
+| Epoch 182, time=200.7ms/ 78.3ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.014, acc= 48.3% | *
+| Epoch 183, time=202.2ms/ 77.2ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.013, acc= 48.7% | *
+| Epoch 184, time=200.5ms/ 77.2ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.010, acc= 48.6% |
+| Epoch 185, time=200.5ms/ 77.2ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.023, acc= 47.9% |
+| Epoch 186, time=200.6ms/ 77.3ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.021, acc= 48.0% |
+| Epoch 187, time=200.5ms/ 77.3ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.027, acc= 47.9% | *
+| Epoch 188, time=200.5ms/ 77.3ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.030, acc= 48.2% |
+| Epoch 189, time=200.5ms/ 77.3ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.035, acc= 47.7% |
+| Epoch 190, time=200.9ms/ 78.3ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.031, acc= 48.3% |
+| Epoch 191, time=200.7ms/ 77.3ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.030, acc= 48.2% | lr=3.7e-03
+| Epoch 192, time=200.5ms/ 77.1ms | Train: loss=0.043, acc= 99.9% | Valid: loss=3.032, acc= 48.1% | *
+| Epoch 193, time=200.3ms/ 77.2ms | Train: loss=0.042, acc= 99.9% | Valid: loss=3.032, acc= 47.5% | *
+| Epoch 194, time=200.4ms/ 77.2ms | Train: loss=0.042, acc= 99.9% | Valid: loss=3.026, acc= 48.1% | *
+| Epoch 195, time=200.3ms/ 77.1ms | Train: loss=0.042, acc= 99.9% | Valid: loss=3.031, acc= 47.9% | *
+| Epoch 196, time=200.4ms/ 77.5ms | Train: loss=0.042, acc= 99.9% | Valid: loss=3.035, acc= 47.9% | *
+| Epoch 197, time=201.2ms/ 77.7ms | Train: loss=0.042, acc= 99.9% | Valid: loss=3.035, acc= 48.1% | *
+| Epoch 198, time=201.1ms/ 78.2ms | Train: loss=0.042, acc= 99.9% | Valid: loss=3.041, acc= 47.9% | *
+| Epoch 199, time=201.0ms/ 77.2ms | Train: loss=0.042, acc= 99.9% | Valid: loss=3.034, acc= 48.0% | *
+| Epoch 200, time=200.4ms/ 77.2ms | Train: loss=0.042, acc= 99.9% | Valid: loss=3.033, acc= 48.4% | *
+----------------------------------------------------------------------------------------------------
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  0 - cifar100-all-0 : loss=4.973, acc=  1.0% <<<
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  1 - cifar100-aug-1 : loss=4.917, acc=  1.6% <<<
+num_test: 10000 num_mask: 2
+hits: 136
+number of test data: 10000
+Mix Precision: 1.3599999999999999 %
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  2 - cifar100-aug-2 : loss=4.427, acc=  8.2% <<<
+num_test: 10000 num_mask: 3
+hits: 788
+number of test data: 10000
+Mix Precision: 7.88 %
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  3 - cifar100-aug-3 : loss=1.662, acc= 54.3% <<<
+num_test: 10000 num_mask: 4
+hits: 5146
+number of test data: 10000
+Mix Precision: 51.459999999999994 %
+Save at ../res/20211131815_cifar_hat-res50_0.txt
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+hits: 5146
+number of test data: 10000
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+****************************************************************************************************
+Accuracies =
+	 60.5%   0.0%   0.0%   0.0% 
+	 60.5%  59.5%   0.0%   0.0% 
+	  2.1%   1.4%  49.3%   0.0% 
+	  1.0%   1.6%   8.2%  54.3% 
+****************************************************************************************************
+Mix Precision: 51.459999999999994 %
+Done!
+[Elapsed time = 28.7 h]
+starttime: 2021-01-13 18:15:07.625547
+endtime: 2021-01-14 22:57:24.628813
+total time: 1 day, 4:42:17.003266
+tim32338519@y5tqr6ctr1610510024420-nvxkk:~/main/src$ exit
+exit
+
+Script done on 2021-01-15 11:30:53+0800

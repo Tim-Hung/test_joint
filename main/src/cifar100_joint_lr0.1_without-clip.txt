@@ -1,0 +1,40 @@
+====================================================================================================
+Arguments =
+	seed:0
+	experiment:cifar
+	approach:joint
+	output:cifar100_joint_lr0.1_without-clip.txt
+	nepochs:100
+	lr:0.1
+	parameter:
+	load_path:
+====================================================================================================
+Input size =[3, 32, 32]
+
+Task info =[(0, 100), (1, 100), (2, 100), (3, 100)]
+No pretrained model
+<bound method Appr.criterion_train of <approaches.joint.Appr object at 0x7f8fd81fcf28>>
+Task  0 (cifar100-all-0)
+Train
+>>> Test on task 0 - cifar100-all-0: loss=1.4637515568733215, acc=63.05 <<<
+Task  1 (cifar100-aug-1)
+Train
+>>> Test on task 0 - cifar100-all-0: loss=1.2050314766168595, acc=68.67999999999999 <<<
+>>> Test on task 1 - cifar100-aug-1: loss=1.2032152146100998, acc=68.78 <<<
+Task  2 (cifar100-aug-2)
+Train
+>>> Test on task 0 - cifar100-all-0: loss=1.097926270365715, acc=72.45 <<<
+>>> Test on task 1 - cifar100-aug-1: loss=1.0946300435066223, acc=72.33000000000001 <<<
+>>> Test on task 2 - cifar100-aug-2: loss=1.0956038373708725, acc=72.23 <<<
+Task  3 (cifar100-aug-3)
+Train
+>>> Test on task 0 - cifar100-all-0: loss=1.1225593453645706, acc=72.08 <<<
+>>> Test on task 1 - cifar100-aug-1: loss=1.1106745195388794, acc=72.34 <<<
+>>> Test on task 2 - cifar100-aug-2: loss=1.1088223135471345, acc=72.2 <<<
+>>> Test on task 3 - cifar100-aug-3: loss=1.120925693511963, acc=72.17 <<<
+Accuracies =
+	
+63.0500 % 0.0000 % 0.0000 % 0.0000 % 	
+68.6800 % 68.7800 % 0.0000 % 0.0000 % 	
+72.4500 % 72.3300 % 72.2300 % 0.0000 % 	
+72.0800 % 72.3400 % 72.2000 % 72.1700 % 

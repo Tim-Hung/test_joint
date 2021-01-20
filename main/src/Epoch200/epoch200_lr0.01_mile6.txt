@@ -1,0 +1,437 @@
+Script started on 2021-01-12 13:34:28+0800
+tim32338519@gj939vctr1610428539698-wwn8g:~/main/src$ CUDA_VISIBLE_DEVICES=4 python run.py --experiment cifar --approach hat-ress50 --nepochs 200 --lr 0.01
+====================================================================================================
+Arguments =
+	seed: 0
+	experiment: cifar
+	approach: hat-res50
+	output: ../res/20211121339_cifar_hat-res50_0.txt
+	nepochs: 200
+	lr: 0.01
+	parameter: 
+	load_path: 
+====================================================================================================
+Load data...
+Task order = [0]
+Input size = [3, 32, 32] 
+Task info = [(0, 100)]
+Inits...
+No pretrained model
+----------------------------------------------------------------------------------------------------
+Net(
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (relu): ReLU()
+  (c1): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c2_1_1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_1_2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c2_1_3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_1_d): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_2_1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_2_2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c2_2_3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_3_1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c2_3_2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c2_3_3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_1_1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_1_2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (c3_1_3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_1_d): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+  (c3_2_1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_2_2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c3_2_3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_3_1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_3_2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c3_3_3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_4_1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c3_4_2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c3_4_3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_1_1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_1_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (c4_1_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_1_d): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+  (c4_2_1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_2_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c4_2_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_3_1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_3_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c4_3_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_4_1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_4_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c4_4_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_5_1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_5_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c4_5_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_6_1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c4_6_2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c4_6_3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_1_1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_1_2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+  (c5_1_3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_1_d): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+  (c5_2_1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_2_2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c5_2_3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_3_1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (c5_3_2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+  (c5_3_3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+  (last): ModuleList(
+    (0): Linear(in_features=2048, out_features=100, bias=True)
+  )
+  (gate): Sigmoid()
+  (ec1): Embedding(1, 64)
+  (ec2_1_1): Embedding(1, 64)
+  (ec2_1_2): Embedding(1, 64)
+  (ec2_1_3): Embedding(1, 256)
+  (ec2_1_d): Embedding(1, 256)
+  (ect2_1): Embedding(1, 256)
+  (ec2_2_1): Embedding(1, 64)
+  (ec2_2_2): Embedding(1, 64)
+  (ec2_2_3): Embedding(1, 256)
+  (ec2_3_1): Embedding(1, 64)
+  (ec2_3_2): Embedding(1, 64)
+  (ec2_3_3): Embedding(1, 256)
+  (ec3_1_1): Embedding(1, 128)
+  (ec3_1_2): Embedding(1, 128)
+  (ec3_1_3): Embedding(1, 512)
+  (ec3_1_d): Embedding(1, 512)
+  (ect3_1): Embedding(1, 512)
+  (ec3_2_1): Embedding(1, 128)
+  (ec3_2_2): Embedding(1, 128)
+  (ec3_2_3): Embedding(1, 512)
+  (ec3_3_1): Embedding(1, 128)
+  (ec3_3_2): Embedding(1, 128)
+  (ec3_3_3): Embedding(1, 512)
+  (ec3_4_1): Embedding(1, 128)
+  (ec3_4_2): Embedding(1, 128)
+  (ec3_4_3): Embedding(1, 512)
+  (ec4_1_1): Embedding(1, 256)
+  (ec4_1_2): Embedding(1, 256)
+  (ec4_1_3): Embedding(1, 1024)
+  (ec4_1_d): Embedding(1, 1024)
+  (ect4_1): Embedding(1, 1024)
+  (ec4_2_1): Embedding(1, 256)
+  (ec4_2_2): Embedding(1, 256)
+  (ec4_2_3): Embedding(1, 1024)
+  (ec4_3_1): Embedding(1, 256)
+  (ec4_3_2): Embedding(1, 256)
+  (ec4_3_3): Embedding(1, 1024)
+  (ec4_4_1): Embedding(1, 256)
+  (ec4_4_2): Embedding(1, 256)
+  (ec4_4_3): Embedding(1, 1024)
+  (ec4_5_1): Embedding(1, 256)
+  (ec4_5_2): Embedding(1, 256)
+  (ec4_5_3): Embedding(1, 1024)
+  (ec4_6_1): Embedding(1, 256)
+  (ec4_6_2): Embedding(1, 256)
+  (ec4_6_3): Embedding(1, 1024)
+  (ec5_1_1): Embedding(1, 512)
+  (ec5_1_2): Embedding(1, 512)
+  (ec5_1_3): Embedding(1, 2048)
+  (ec5_1_d): Embedding(1, 2048)
+  (ect5_1): Embedding(1, 2048)
+  (ec5_2_1): Embedding(1, 512)
+  (ec5_2_2): Embedding(1, 512)
+  (ec5_2_3): Embedding(1, 2048)
+  (ec5_3_1): Embedding(1, 512)
+  (ec5_3_2): Embedding(1, 512)
+  (ec5_3_3): Embedding(1, 2048)
+  (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_1_1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_1_2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_1_3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_1_d): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_2_1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_2_2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_2_3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_3_1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_3_2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn2_3_3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_1_1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_1_2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_1_3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_1_d): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_2_1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_2_2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_2_3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_3_1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_3_2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_3_3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_4_1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_4_2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn3_4_3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_1_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_1_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_1_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_1_d): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_2_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_2_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_2_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_3_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_3_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_3_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_4_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_4_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_4_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_5_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_5_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_5_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_6_1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_6_2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn4_6_3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_1_1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_1_2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_1_3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_1_d): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_2_1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_2_2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_2_3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_3_1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_3_2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+  (bn5_3_3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+)
+Dimensions = torch.Size([64, 3, 3, 3]) torch.Size([64, 64, 1, 1]) torch.Size([64, 64, 3, 3]) torch.Size([256, 64, 1, 1]) torch.Size([256, 64, 1, 1]) torch.Size([64, 256, 1, 1]) torch.Size([64, 64, 3, 3]) torch.Size([256, 64, 1, 1]) torch.Size([64, 256, 1, 1]) torch.Size([64, 64, 3, 3]) torch.Size([256, 64, 1, 1]) torch.Size([128, 256, 1, 1]) torch.Size([128, 128, 3, 3]) torch.Size([512, 128, 1, 1]) torch.Size([512, 256, 1, 1]) torch.Size([128, 512, 1, 1]) torch.Size([128, 128, 3, 3]) torch.Size([512, 128, 1, 1]) torch.Size([128, 512, 1, 1]) torch.Size([128, 128, 3, 3]) torch.Size([512, 128, 1, 1]) torch.Size([128, 512, 1, 1]) torch.Size([128, 128, 3, 3]) torch.Size([512, 128, 1, 1]) torch.Size([256, 512, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([1024, 512, 1, 1]) torch.Size([256, 1024, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([256, 1024, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([256, 1024, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([256, 1024, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([256, 1024, 1, 1]) torch.Size([256, 256, 3, 3]) torch.Size([1024, 256, 1, 1]) torch.Size([512, 1024, 1, 1]) torch.Size([512, 512, 3, 3]) torch.Size([2048, 512, 1, 1]) torch.Size([2048, 1024, 1, 1]) torch.Size([512, 2048, 1, 1]) torch.Size([512, 512, 3, 3]) torch.Size([2048, 512, 1, 1]) torch.Size([512, 2048, 1, 1]) torch.Size([512, 512, 3, 3]) torch.Size([2048, 512, 1, 1]) torch.Size([100, 2048]) torch.Size([100]) torch.Size([1, 64]) torch.Size([1, 64]) torch.Size([1, 64]) torch.Size([1, 256]) torch.Size([1, 256]) torch.Size([1, 256]) torch.Size([1, 64]) torch.Size([1, 64]) torch.Size([1, 256]) torch.Size([1, 64]) torch.Size([1, 64]) torch.Size([1, 256]) torch.Size([1, 128]) torch.Size([1, 128]) torch.Size([1, 512]) torch.Size([1, 512]) torch.Size([1, 512]) torch.Size([1, 128]) torch.Size([1, 128]) torch.Size([1, 512]) torch.Size([1, 128]) torch.Size([1, 128]) torch.Size([1, 512]) torch.Size([1, 128]) torch.Size([1, 128]) torch.Size([1, 512]) torch.Size([1, 256]) torch.Size([1, 256]) torch.Size([1, 1024]) torch.Size([1, 1024]) torch.Size([1, 1024]) torch.Size([1, 256]) torch.Size([1, 256]) torch.Size([1, 1024]) torch.Size([1, 256]) torch.Size([1, 256]) torch.Size([1, 1024]) torch.Size([1, 256]) torch.Size([1, 256]) torch.Size([1, 1024]) torch.Size([1, 256]) torch.Size([1, 256]) torch.Size([1, 1024]) torch.Size([1, 256]) torch.Size([1, 256]) torch.Size([1, 1024]) torch.Size([1, 512]) torch.Size([1, 512]) torch.Size([1, 2048]) torch.Size([1, 2048]) torch.Size([1, 2048]) torch.Size([1, 512]) torch.Size([1, 512]) torch.Size([1, 2048]) torch.Size([1, 512]) torch.Size([1, 512]) torch.Size([1, 2048]) 
+Num parameters = 23.7M
+----------------------------------------------------------------------------------------------------
+SGD (
+Parameter Group 0
+    dampening: 0
+    lr: 0.01
+    momentum: 0
+    nesterov: False
+    weight_decay: 0
+) = lr: 0.01, momentum: 0, dampening: 0, weight_decay: 0, nesterov: False, 
+----------------------------------------------------------------------------------------------------
+****************************************************************************************************
+Task  0 (cifar100-all-0)
+****************************************************************************************************
+Train
+[52, 65, 81, 102, 128, 160]
+202111213400_MultiStepLR_SGD_momentum_lr0.01_factor3_task0
+epochs:200
+/home/tim32338519/main/src/approaches/hat.py:192: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(self.model.parameters(),self.clipgrad)
+/home/tim32338519/main/src/approaches/hat.py:221: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  images=torch.autograd.Variable(x[b],volatile=True)
+/home/tim32338519/main/src/approaches/hat.py:222: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  targets=torch.autograd.Variable(y[b],volatile=True)
+/home/tim32338519/main/src/approaches/hat.py:223: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  task=torch.autograd.Variable(torch.LongTensor([t]).cuda(),volatile=True)
+/opt/conda/lib/python3.6/site-packages/torch/optim/lr_scheduler.py:156: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+| Epoch   1, time=204.9ms/ 76.9ms | Train: loss=3.868, acc= 15.0% | Valid: loss=3.898, acc= 14.6% |
+| Epoch   2, time=202.0ms/ 76.9ms | Train: loss=3.354, acc= 24.5% | Valid: loss=3.473, acc= 21.7% |
+| Epoch   3, time=202.0ms/ 77.7ms | Train: loss=2.949, acc= 32.2% | Valid: loss=3.140, acc= 27.8% |
+| Epoch   4, time=203.6ms/ 76.9ms | Train: loss=2.545, acc= 40.8% | Valid: loss=2.840, acc= 33.7% |
+| Epoch   5, time=202.0ms/ 76.9ms | Train: loss=2.270, acc= 46.6% | Valid: loss=2.663, acc= 38.7% |
+| Epoch   6, time=202.0ms/ 77.0ms | Train: loss=1.996, acc= 53.1% | Valid: loss=2.521, acc= 41.7% |
+| Epoch   7, time=202.1ms/ 76.9ms | Train: loss=1.760, acc= 59.5% | Valid: loss=2.423, acc= 44.1% |
+| Epoch   8, time=202.0ms/ 76.9ms | Train: loss=1.506, acc= 65.2% | Valid: loss=2.380, acc= 45.2% |
+| Epoch   9, time=202.1ms/ 76.9ms | Train: loss=1.400, acc= 68.4% | Valid: loss=2.399, acc= 46.5% |
+| Epoch  10, time=202.0ms/ 76.9ms | Train: loss=1.211, acc= 73.3% | Valid: loss=2.413, acc= 46.4% |
+| Epoch  11, time=202.0ms/ 76.9ms | Train: loss=1.055, acc= 77.4% | Valid: loss=2.460, acc= 47.0% |
+| Epoch  12, time=203.7ms/ 76.9ms | Train: loss=0.937, acc= 81.1% | Valid: loss=2.531, acc= 46.8% |
+| Epoch  13, time=201.9ms/ 77.0ms | Train: loss=0.853, acc= 83.7% | Valid: loss=2.530, acc= 47.7% |
+| Epoch  14, time=202.1ms/ 76.9ms | Train: loss=0.732, acc= 87.1% | Valid: loss=2.601, acc= 47.6% |
+| Epoch  15, time=202.0ms/ 76.9ms | Train: loss=0.666, acc= 89.4% | Valid: loss=2.658, acc= 47.6% |
+| Epoch  16, time=202.1ms/ 77.0ms | Train: loss=0.630, acc= 90.3% | Valid: loss=2.792, acc= 46.6% |
+| Epoch  17, time=202.2ms/ 76.9ms | Train: loss=0.557, acc= 92.6% | Valid: loss=2.755, acc= 49.0% |
+| Epoch  18, time=202.1ms/ 77.0ms | Train: loss=0.503, acc= 94.3% | Valid: loss=2.822, acc= 48.3% |
+| Epoch  19, time=202.0ms/ 76.9ms | Train: loss=0.458, acc= 95.9% | Valid: loss=2.827, acc= 49.9% |
+| Epoch  20, time=202.0ms/ 77.1ms | Train: loss=0.422, acc= 97.1% | Valid: loss=2.852, acc= 49.3% |
+| Epoch  21, time=202.1ms/ 76.9ms | Train: loss=0.425, acc= 96.6% | Valid: loss=2.919, acc= 48.1% |
+| Epoch  22, time=202.1ms/ 77.0ms | Train: loss=0.426, acc= 96.7% | Valid: loss=2.992, acc= 48.5% |
+| Epoch  23, time=202.2ms/ 76.9ms | Train: loss=0.430, acc= 96.3% | Valid: loss=3.025, acc= 47.5% |
+| Epoch  24, time=202.0ms/ 76.9ms | Train: loss=0.475, acc= 94.8% | Valid: loss=2.980, acc= 48.4% |
+| Epoch  25, time=202.1ms/ 77.0ms | Train: loss=0.466, acc= 95.0% | Valid: loss=3.011, acc= 47.9% |
+| Epoch  26, time=202.0ms/ 77.0ms | Train: loss=0.453, acc= 95.5% | Valid: loss=2.997, acc= 48.2% |
+| Epoch  27, time=202.1ms/ 77.0ms | Train: loss=0.390, acc= 97.6% | Valid: loss=2.930, acc= 49.1% |
+| Epoch  28, time=202.1ms/ 76.9ms | Train: loss=0.364, acc= 98.4% | Valid: loss=2.917, acc= 49.5% |
+| Epoch  29, time=202.2ms/ 77.0ms | Train: loss=0.325, acc= 99.5% | Valid: loss=2.857, acc= 51.2% |
+| Epoch  30, time=202.1ms/ 77.0ms | Train: loss=0.308, acc= 99.8% | Valid: loss=2.853, acc= 51.1% |
+| Epoch  31, time=202.0ms/ 77.0ms | Train: loss=0.298, acc= 99.9% | Valid: loss=2.824, acc= 51.5% |
+| Epoch  32, time=202.2ms/ 77.0ms | Train: loss=0.293, acc= 99.9% | Valid: loss=2.799, acc= 51.6% |
+| Epoch  33, time=202.1ms/ 76.9ms | Train: loss=0.293, acc= 99.9% | Valid: loss=2.846, acc= 51.9% |
+| Epoch  34, time=202.0ms/ 77.0ms | Train: loss=0.293, acc= 99.8% | Valid: loss=2.865, acc= 51.0% |
+| Epoch  35, time=202.0ms/ 76.9ms | Train: loss=0.365, acc= 97.7% | Valid: loss=3.008, acc= 48.6% |
+| Epoch  36, time=202.0ms/ 76.9ms | Train: loss=0.759, acc= 85.1% | Valid: loss=2.980, acc= 44.3% |
+| Epoch  37, time=202.0ms/ 77.9ms | Train: loss=0.544, acc= 92.1% | Valid: loss=2.926, acc= 46.4% |
+| Epoch  38, time=202.2ms/ 76.9ms | Train: loss=0.414, acc= 96.4% | Valid: loss=2.871, acc= 48.0% |
+| Epoch  39, time=202.1ms/ 77.0ms | Train: loss=0.325, acc= 99.1% | Valid: loss=2.799, acc= 50.2% |
+| Epoch  40, time=202.2ms/ 77.0ms | Train: loss=0.310, acc= 99.4% | Valid: loss=2.856, acc= 50.4% |
+| Epoch  41, time=202.0ms/ 76.9ms | Train: loss=0.291, acc= 99.8% | Valid: loss=2.812, acc= 51.4% |
+| Epoch  42, time=202.0ms/ 76.9ms | Train: loss=0.277, acc= 99.9% | Valid: loss=2.724, acc= 52.9% |
+| Epoch  43, time=202.0ms/ 76.9ms | Train: loss=0.274, acc= 99.9% | Valid: loss=2.778, acc= 51.7% |
+| Epoch  44, time=202.0ms/ 76.9ms | Train: loss=0.274, acc= 99.8% | Valid: loss=2.786, acc= 51.3% |
+| Epoch  45, time=202.1ms/ 76.9ms | Train: loss=0.291, acc= 99.5% | Valid: loss=2.898, acc= 50.2% |
+| Epoch  46, time=202.0ms/ 77.0ms | Train: loss=0.769, acc= 84.2% | Valid: loss=3.108, acc= 43.8% |
+| Epoch  47, time=202.0ms/ 76.9ms | Train: loss=0.602, acc= 89.9% | Valid: loss=2.834, acc= 46.0% |
+| Epoch  48, time=202.1ms/ 76.9ms | Train: loss=0.435, acc= 95.5% | Valid: loss=2.885, acc= 47.0% |
+| Epoch  49, time=202.0ms/ 76.9ms | Train: loss=0.348, acc= 98.1% | Valid: loss=2.810, acc= 50.6% |
+| Epoch  50, time=202.1ms/ 76.9ms | Train: loss=0.314, acc= 99.0% | Valid: loss=2.877, acc= 50.3% |
+| Epoch  51, time=202.0ms/ 76.9ms | Train: loss=0.292, acc= 99.5% | Valid: loss=2.796, acc= 51.3% |
+| Epoch  52, time=202.0ms/ 76.9ms | Train: loss=0.287, acc= 99.5% | Valid: loss=2.827, acc= 51.2% |
+| Epoch  53, time=202.1ms/ 76.9ms | Train: loss=0.281, acc= 99.6% | Valid: loss=2.793, acc= 51.9% |
+| Epoch  54, time=202.1ms/ 76.9ms | Train: loss=0.258, acc=100.0% | Valid: loss=2.674, acc= 54.2% |
+| Epoch  55, time=202.9ms/ 77.0ms | Train: loss=0.254, acc=100.0% | Valid: loss=2.658, acc= 54.6% |
+| Epoch  56, time=202.1ms/ 77.0ms | Train: loss=0.252, acc=100.0% | Valid: loss=2.653, acc= 54.4% |
+| Epoch  57, time=201.9ms/ 76.9ms | Train: loss=0.250, acc=100.0% | Valid: loss=2.653, acc= 54.1% |
+| Epoch  58, time=201.9ms/ 76.9ms | Train: loss=0.248, acc=100.0% | Valid: loss=2.657, acc= 53.9% |
+| Epoch  59, time=202.0ms/ 77.0ms | Train: loss=0.247, acc=100.0% | Valid: loss=2.653, acc= 53.6% |
+| Epoch  60, time=202.0ms/ 76.9ms | Train: loss=0.245, acc=100.0% | Valid: loss=2.660, acc= 53.9% |
+| Epoch  61, time=202.0ms/ 76.9ms | Train: loss=0.244, acc=100.0% | Valid: loss=2.666, acc= 53.8% |
+| Epoch  62, time=202.0ms/ 76.9ms | Train: loss=0.243, acc=100.0% | Valid: loss=2.670, acc= 53.5% |
+| Epoch  63, time=202.0ms/ 76.9ms | Train: loss=0.242, acc=100.0% | Valid: loss=2.667, acc= 53.7% |
+| Epoch  64, time=202.1ms/ 76.9ms | Train: loss=0.240, acc=100.0% | Valid: loss=2.673, acc= 53.7% |
+| Epoch  65, time=202.1ms/ 76.9ms | Train: loss=0.239, acc=100.0% | Valid: loss=2.662, acc= 53.2% |
+| Epoch  66, time=202.1ms/ 76.9ms | Train: loss=0.238, acc=100.0% | Valid: loss=2.677, acc= 53.2% |
+| Epoch  67, time=202.1ms/ 76.9ms | Train: loss=0.237, acc=100.0% | Valid: loss=2.676, acc= 53.1% |
+| Epoch  68, time=202.1ms/ 77.0ms | Train: loss=0.237, acc=100.0% | Valid: loss=2.678, acc= 53.3% |
+| Epoch  69, time=202.1ms/ 76.9ms | Train: loss=0.237, acc=100.0% | Valid: loss=2.677, acc= 53.1% |
+| Epoch  70, time=202.1ms/ 76.9ms | Train: loss=0.237, acc=100.0% | Valid: loss=2.677, acc= 53.2% |
+| Epoch  71, time=202.1ms/ 76.9ms | Train: loss=0.236, acc=100.0% | Valid: loss=2.679, acc= 53.2% |
+| Epoch  72, time=202.0ms/ 77.0ms | Train: loss=0.236, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch  73, time=202.1ms/ 77.0ms | Train: loss=0.236, acc=100.0% | Valid: loss=2.679, acc= 53.2% |
+| Epoch  74, time=202.0ms/ 77.0ms | Train: loss=0.236, acc=100.0% | Valid: loss=2.678, acc= 53.2% |
+| Epoch  75, time=202.1ms/ 76.9ms | Train: loss=0.236, acc=100.0% | Valid: loss=2.677, acc= 53.2% |
+| Epoch  76, time=202.0ms/ 76.9ms | Train: loss=0.235, acc=100.0% | Valid: loss=2.675, acc= 53.0% |
+| Epoch  77, time=202.0ms/ 77.0ms | Train: loss=0.235, acc=100.0% | Valid: loss=2.680, acc= 52.9% |
+| Epoch  78, time=202.1ms/ 77.0ms | Train: loss=0.235, acc=100.0% | Valid: loss=2.677, acc= 53.0% |
+| Epoch  79, time=202.0ms/ 76.9ms | Train: loss=0.235, acc=100.0% | Valid: loss=2.679, acc= 53.0% |
+| Epoch  80, time=201.9ms/ 76.9ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.680, acc= 52.8% |
+| Epoch  81, time=202.0ms/ 76.9ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.678, acc= 53.0% |
+| Epoch  82, time=202.1ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.675, acc= 53.1% |
+| Epoch  83, time=202.9ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.675, acc= 53.1% |
+| Epoch  84, time=202.1ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.676, acc= 53.1% |
+| Epoch  85, time=202.1ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.678, acc= 53.0% |
+| Epoch  86, time=202.1ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.678, acc= 53.1% |
+| Epoch  87, time=202.2ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.678, acc= 53.1% |
+| Epoch  88, time=202.2ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.679, acc= 53.3% |
+| Epoch  89, time=202.2ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.679, acc= 53.2% |
+| Epoch  90, time=202.1ms/ 77.1ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.679, acc= 53.2% |
+| Epoch  91, time=202.1ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.679, acc= 53.3% |
+| Epoch  92, time=202.1ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.680, acc= 53.4% |
+| Epoch  93, time=204.3ms/ 77.1ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.679, acc= 53.3% |
+| Epoch  94, time=202.1ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.679, acc= 53.3% |
+| Epoch  95, time=202.4ms/ 78.1ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.679, acc= 53.3% |
+| Epoch  96, time=203.4ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.678, acc= 53.4% |
+| Epoch  97, time=202.1ms/ 77.0ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.678, acc= 53.3% |
+| Epoch  98, time=202.2ms/ 78.1ms | Train: loss=0.234, acc=100.0% | Valid: loss=2.680, acc= 53.3% |
+| Epoch  99, time=204.0ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.678, acc= 53.3% |
+| Epoch 100, time=202.2ms/ 77.3ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.679, acc= 53.4% |
+| Epoch 101, time=202.6ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.680, acc= 53.3% |
+| Epoch 102, time=202.3ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.681, acc= 53.2% |
+| Epoch 103, time=202.2ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 104, time=202.3ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.2% |
+| Epoch 105, time=202.2ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 106, time=202.2ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 107, time=202.1ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 108, time=202.1ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 109, time=202.2ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.2% |
+| Epoch 110, time=202.3ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 111, time=202.2ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 112, time=202.2ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 113, time=202.1ms/ 77.3ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 114, time=202.2ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 115, time=202.1ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 116, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 117, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 118, time=202.1ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 119, time=202.1ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 120, time=202.3ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 121, time=202.1ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 122, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 123, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 124, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 125, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 126, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 127, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 128, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 129, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 130, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 131, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 132, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 133, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 134, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 135, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 136, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 137, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 138, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 139, time=204.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 140, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 141, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 142, time=202.0ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 143, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 144, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 145, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 146, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 147, time=202.1ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 148, time=202.1ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 149, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 150, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 151, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 152, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 153, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 154, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 155, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 156, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.1% |
+| Epoch 157, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 158, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 159, time=202.0ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 160, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 161, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 162, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 163, time=202.1ms/ 77.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 164, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 165, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 166, time=202.0ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 167, time=202.1ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 168, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 169, time=202.2ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 170, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 171, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 172, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 173, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 174, time=202.8ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 175, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 176, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 177, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 178, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 179, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 180, time=203.9ms/ 78.1ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 181, time=203.4ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 182, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 183, time=202.2ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 184, time=202.1ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 185, time=202.1ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 186, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 187, time=202.6ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 188, time=202.0ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 189, time=201.9ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 190, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 191, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 192, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 193, time=202.0ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 194, time=202.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 195, time=202.2ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 196, time=203.1ms/ 77.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 197, time=202.0ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 198, time=202.0ms/ 78.0ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 199, time=202.5ms/ 76.9ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+| Epoch 200, time=201.8ms/ 76.8ms | Train: loss=0.233, acc=100.0% | Valid: loss=2.682, acc= 53.0% |
+----------------------------------------------------------------------------------------------------
+1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+>>> Test on task  0 - cifar100-all-0 : loss=2.393, acc= 53.1% <<<
+Save at ../res/20211121339_cifar_hat-res50_0.txt
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Traceback (most recent call last):
+  File "run.py", line 270, in <module>
+    num_test = np.size(t_list_prob,1) # 2000
+  File "<__array_function__ internals>", line 6, in size
+  File "/opt/conda/lib/python3.6/site-packages/numpy/core/fromnumeric.py", line 3159, in size
+    return a.shape[axis]
+IndexError: tuple index out of range
+tim32338519@gj939vctr1610428539698-wwn8g:~/main/src$ [Ktim32338519@gj939vctr1610428539698-wwn8g:~/main/src$ exit
+exit
+
+Script done on 2021-01-13 11:05:59+0800
